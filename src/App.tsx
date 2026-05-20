@@ -5,19 +5,26 @@ import { ReviewScreen } from './components/ReviewScreen'
 
 function App() {
   const quiz = useQuiz()
-  const hasProgress = quiz.stats.answered > 0 || quiz.progress.currentIndex > 0
+
+  const hasPracticeProgress =
+    quiz.practiceStats.answered > 0 || quiz.practiceProgress.currentIndex > 0
 
   if (quiz.screen === 'home') {
     return (
       <HomeScreen
-        stats={quiz.stats}
-        hasProgress={hasProgress}
-        onStart={() => {
-          if (hasProgress) quiz.startFresh()
-          else quiz.start()
+        practiceStats={quiz.practiceStats}
+        examStats={quiz.examStats}
+        practiceProgress={quiz.practiceProgress}
+        examProgress={quiz.examProgress}
+        onStartPractice={() => {
+          if (hasPracticeProgress) quiz.startPracticeFresh()
+          else quiz.startPractice()
         }}
-        onResume={quiz.resume}
-        onReset={quiz.reset}
+        onResumePractice={quiz.resumePractice}
+        onResetPractice={quiz.resetPractice}
+        onStartExam={quiz.startExam}
+        onResumeExam={quiz.resumeExam}
+        onResetExam={quiz.resetExam}
       />
     )
   }
@@ -27,10 +34,8 @@ function App() {
       <ReviewScreen
         questions={quiz.questions}
         answers={quiz.progress.answers}
-        onGoTo={(index) => {
-          quiz.goTo(index)
-          quiz.setRevealed(Boolean(quiz.progress.answers[quiz.questions[index]?.id]))
-        }}
+        mode={quiz.activeMode}
+        onGoTo={quiz.goTo}
         onHome={() => quiz.setScreen('home')}
       />
     )

@@ -19,8 +19,15 @@ export interface AnswerRecord {
 
 export type QuizAnswers = Record<number, AnswerRecord>
 
+export type QuizMode = 'practice' | 'exam'
+
+export const EXAM_SIZE = 40
+export const PASS_THRESHOLD = 0.7
+
 export interface QuizProgress {
+  mode: QuizMode
   currentIndex: number
   answers: QuizAnswers
   startedAt: string
+  questionIds?: number[]
 }

@@ -34,6 +34,9 @@ export function QuizScreen({
         >
           ← Home
         </button>
+        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600">
+          {quiz.activeMode === 'exam' ? 'Exam mode' : 'Practice mode'}
+        </span>
         <div className="flex items-center gap-2">
           <label htmlFor="jump" className="text-sm text-slate-500">
             Jump to
