@@ -2,20 +2,26 @@
 """Convert laravel-quiz-quizlet-import.txt to questions.json."""
 import json
 import re
+from difflib import SequenceMatcher
 from pathlib import Path
 
 SOURCE = Path("/home/davita/laravel-quiz-quizlet-import.txt")
 OUT = Path(__file__).resolve().parent.parent / "src" / "data" / "questions.json"
+MATCH_THRESHOLD = 0.55
 
 CODE_START = re.compile(
     r"^(<\?php|//|#|class |public |protected |private |function |"
     r"\$[a-zA-Z_]|Route::|Schema::|DB::|use |namespace |"
     r"return |if \(|foreach |for \(|while \(|try |catch |"
     r"\{|\}|/\*|@if|@csrf|@yield|@extends|@section|"
-    r"SESSION_|APP_|Cache::|Mail::|Event::|dispatch|"
+    r"SESSION_|APP_|Cache::|Mail::|Event::|::dispatch|dispatch\(|"
     r"Illuminate\\|implements |extends Model|"
     r"upload\(|validate\(|middleware|->|\[\])",
     re.I,
+)
+
+STOP_WORDS = frozenset(
+    "a an the to it is of in and or for that as by with on at be this from are was".split()
 )
 
 
@@ -90,44 +96,109 @@ def parse_multiline(text: str):
     return prompt, code, options if options else None
 
 
+def normalize_text_for_match(text: str) -> str:
+    text = re.sub(r"\s+", " ", text.strip().lower())
+    text = text.replace("\\'", "'").replace('\\"', '"').replace("\\", "")
+    text = re.sub(r"['\"]", "'", text)
+    text = re.sub(r"\(\s*\)", "()", text)
+    return text
+
+
+def keyword_overlap_score(answer_norm: str, opt_norm: str) -> float:
+    a_words = set(re.findall(r"\w+", answer_norm)) - STOP_WORDS
+    o_words = set(re.findall(r"\w+", opt_norm)) - STOP_WORDS
+    if not a_words or not o_words:
+        return 0.0
+    return len(a_words & o_words) / len(a_words | o_words)
+
+
+def match_score(answer: str, option_text: str) -> float:
+    answer_norm = normalize_text_for_match(answer)
+    opt_norm = normalize_text_for_match(option_text)
+
+    if not answer_norm or not opt_norm:
+        return 0.0
+
+    if answer_norm == opt_norm:
+        return 1.0
+
+    ratio = SequenceMatcher(None, answer_norm, opt_norm).ratio()
+
+    shorter, longer = (
+        (answer_norm, opt_norm)
+        if len(answer_norm) <= len(opt_norm)
+        else (opt_norm, answer_norm)
+    )
+    if shorter and len(shorter) >= 3:
+        if answer_norm.startswith(opt_norm) or opt_norm.startswith(answer_norm):
+            prefix_score = len(shorter) / len(longer)
+            ratio = max(ratio, prefix_score * 0.98)
+        if shorter in longer:
+            contain_score = len(shorter) / len(longer)
+            ratio = max(ratio, contain_score * 0.94 + ratio * 0.06)
+
+    ratio = max(ratio, keyword_overlap_score(answer_norm, opt_norm) * 0.9)
+    return ratio
+
+
+def relabel_options(options: list[dict]) -> list[dict]:
+    labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    return [
+        {"id": labels[i], "text": opt["text"]}
+        for i, opt in enumerate(options)
+    ]
+
+
 def normalize_options(options, answer: str):
     if not options:
-        return [
-            {"id": "A", "text": answer},
-            {"id": "B", "text": "None of the above"},
-            {"id": "C", "text": "All of the above"},
-            {"id": "D", "text": "Not applicable"},
-        ]
+        return relabel_options(
+            [
+                {"id": "A", "text": answer},
+                {"id": "B", "text": "None of the above"},
+                {"id": "C", "text": "All of the above"},
+                {"id": "D", "text": "Not applicable"},
+            ]
+        )
 
-    # Ensure unique ids and pad to 4 if needed
-    seen = set()
+    seen_ids = set()
+    seen_texts = set()
     normalized = []
     for opt in options:
-        if opt["id"] in seen:
+        if opt["id"] in seen_ids:
             continue
-        seen.add(opt["id"])
-        normalized.append(opt)
+        text_key = normalize_text_for_match(opt["text"])
+        if text_key in seen_texts:
+            continue
+        seen_ids.add(opt["id"])
+        seen_texts.add(text_key)
+        normalized.append({"id": opt["id"], "text": opt["text"].strip()})
 
-    labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    next_idx = len(normalized)
-    while len(normalized) < 2 and next_idx < 4:
-        normalized.append({"id": labels[next_idx], "text": f"Option {labels[next_idx]}"})
-        next_idx += 1
-
-    return normalized
+    return relabel_options(normalized)
 
 
-def match_answer_index(options, answer: str):
-    answer_norm = re.sub(r"\s+", " ", answer.strip().lower())
-    for i, opt in enumerate(options):
-        opt_norm = re.sub(r"\s+", " ", opt["text"].strip().lower())
-        if opt_norm == answer_norm or answer_norm in opt_norm or opt_norm in answer_norm:
-            return i
-    # fallback: find best partial match
-    for i, opt in enumerate(options):
-        if answer_norm[:40] in re.sub(r"\s+", " ", opt["text"].strip().lower()):
-            return i
-    return 0
+def match_answer_index(options, answer: str) -> int:
+    if not options:
+        return 0
+
+    scores = [match_score(answer, opt["text"]) for opt in options]
+    return max(range(len(scores)), key=lambda i: scores[i])
+
+
+def ensure_answer_in_options(options, answer: str) -> tuple[list[dict], int]:
+    options = normalize_options(options, answer)
+    correct_index = match_answer_index(options, answer)
+    best_score = match_score(answer, options[correct_index]["text"])
+
+    if best_score >= MATCH_THRESHOLD:
+        return options, correct_index
+
+    # Replace the least similar option with the canonical answer text.
+    scores = [match_score(answer, opt["text"]) for opt in options]
+    replace_index = min(range(len(scores)), key=lambda i: scores[i])
+    options[replace_index] = {"id": options[replace_index]["id"], "text": answer.strip()}
+    options = relabel_options(options)
+    correct_index = match_answer_index(options, answer)
+    return options, correct_index
 
 
 def build_question(num: int, raw_q: str, answer: str) -> dict:
@@ -141,8 +212,10 @@ def build_question(num: int, raw_q: str, answer: str) -> dict:
     if not prompt:
         prompt = raw_q.split("\n")[0][:500]
 
-    options = normalize_options(options, answer)
-    correct_index = match_answer_index(options, answer)
+    if code and normalize_text_for_match(code) == normalize_text_for_match(prompt):
+        code = None
+
+    options, correct_index = ensure_answer_in_options(options or [], answer)
 
     return {
         "id": num,
@@ -154,9 +227,51 @@ def build_question(num: int, raw_q: str, answer: str) -> dict:
     }
 
 
+def validate_questions(questions: list[dict]) -> list[str]:
+    warnings = []
+    for q in questions:
+        qid = q["id"]
+        options = q["options"]
+        answer = q["correctAnswer"]
+        correct_index = q["correctIndex"]
+
+        if not options:
+            warnings.append(f"Q{qid}: no options")
+            continue
+
+        if correct_index < 0 or correct_index >= len(options):
+            warnings.append(f"Q{qid}: correctIndex out of range")
+            continue
+
+        best_index = match_answer_index(options, answer)
+        best_score = match_score(answer, options[best_index]["text"])
+        if best_index != correct_index:
+            warnings.append(
+                f"Q{qid}: correctIndex {correct_index} != best match {best_index}"
+            )
+        if best_score < MATCH_THRESHOLD:
+            warnings.append(
+                f"Q{qid}: low confidence match ({best_score:.2f}) for '{answer[:60]}'"
+            )
+
+        texts = [normalize_text_for_match(opt["text"]) for opt in options]
+        if len(texts) != len(set(texts)):
+            warnings.append(f"Q{qid}: duplicate option text")
+
+    return warnings
+
+
 def main():
     entries = load_entries()
     questions = [build_question(i + 1, q, a) for i, (q, a) in enumerate(entries)]
+
+    warnings = validate_questions(questions)
+    if warnings:
+        print(f"Validation warnings ({len(warnings)}):")
+        for warning in warnings[:20]:
+            print(f"  - {warning}")
+        if len(warnings) > 20:
+            print(f"  ... and {len(warnings) - 20} more")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(questions, indent=2, ensure_ascii=False))

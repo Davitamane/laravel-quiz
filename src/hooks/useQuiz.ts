@@ -16,18 +16,37 @@ function storageKey(mode: QuizMode): string {
   return mode === 'exam' ? EXAM_KEY : PRACTICE_KEY
 }
 
+function revalidateAnswers(progress: QuizProgress): QuizProgress {
+  const questions = getActiveQuestions(progress)
+  const answers = { ...progress.answers }
+  let changed = false
+
+  for (const question of questions) {
+    const record = answers[question.id]
+    if (!record) continue
+
+    const correct = record.selectedIndex === question.correctIndex
+    if (record.correct !== correct) {
+      answers[question.id] = { ...record, correct }
+      changed = true
+    }
+  }
+
+  return changed ? { ...progress, answers } : progress
+}
+
 function loadProgress(mode: QuizMode): QuizProgress {
   try {
     const raw = localStorage.getItem(storageKey(mode))
     if (raw) {
       const parsed = JSON.parse(raw) as QuizProgress
-      return { ...defaultProgress(mode), ...parsed, mode }
+      return revalidateAnswers({ ...defaultProgress(mode), ...parsed, mode })
     }
     if (mode === 'practice') {
       const legacy = localStorage.getItem(LEGACY_KEY)
       if (legacy) {
         const parsed = JSON.parse(legacy) as QuizProgress
-        return { ...defaultProgress('practice'), ...parsed, mode: 'practice' }
+        return revalidateAnswers({ ...defaultProgress('practice'), ...parsed, mode: 'practice' })
       }
     }
   } catch {

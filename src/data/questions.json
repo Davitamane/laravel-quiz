@@ -622,7 +622,7 @@
       }
     ],
     "correctAnswer": "User #",
-    "correctIndex": 1
+    "correctIndex": 3
   },
   {
     "id": 26,
@@ -1347,7 +1347,7 @@
       }
     ],
     "correctAnswer": "Authenticate",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 55,
@@ -2172,7 +2172,7 @@
       }
     ],
     "correctAnswer": "auth",
-    "correctIndex": 2
+    "correctIndex": 3
   },
   {
     "id": 88,
@@ -2547,7 +2547,7 @@
       }
     ],
     "correctAnswer": ".blade.php",
-    "correctIndex": 1
+    "correctIndex": 3
   },
   {
     "id": 103,
@@ -2747,7 +2747,7 @@
       }
     ],
     "correctAnswer": "required_with",
-    "correctIndex": 1
+    "correctIndex": 3
   },
   {
     "id": 111,
@@ -3374,10 +3374,6 @@
       {
         "id": "A",
         "text": "It confirms that a user can log in and is redirected to /home."
-      },
-      {
-        "id": "B",
-        "text": "Option B"
       }
     ],
     "correctAnswer": "It confirms that a user can log in and is redirected to /home.",
@@ -3506,7 +3502,7 @@
       }
     ],
     "correctAnswer": "@foreach with $loop->index",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 142,
@@ -4469,10 +4465,6 @@
       },
       {
         "id": "C",
-        "text": "assertFileExists()"
-      },
-      {
-        "id": "D",
         "text": "assertDirectoryHasFile()"
       }
     ],
@@ -4782,10 +4774,6 @@
       },
       {
         "id": "C",
-        "text": "chain()"
-      },
-      {
-        "id": "D",
         "text": "order()"
       }
     ],
@@ -4936,7 +4924,7 @@
       }
     ],
     "correctAnswer": "It removes any HTML tags, helping to prevent potential XSS attacks.",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 200,
@@ -4999,14 +4987,10 @@
       },
       {
         "id": "B",
-        "text": "@hasSection"
-      },
-      {
-        "id": "C",
         "text": "@checkSection"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "@sectionExists"
       }
     ],
@@ -5211,7 +5195,7 @@
       }
     ],
     "correctAnswer": "It retrieves users having at least one post created in the past 30 days.",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 211,
@@ -5236,7 +5220,7 @@
       }
     ],
     "correctAnswer": "['App\\Listeners\\SendWelcomeEmail', 'priority' => 10]",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 212,
@@ -5286,7 +5270,7 @@
       }
     ],
     "correctAnswer": "It includes both active and soft-deleted posts in the result set.",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 214,
@@ -5361,7 +5345,7 @@
       }
     ],
     "correctAnswer": "It automatically deletes posts when the associated user is deleted",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 217,
@@ -5504,10 +5488,6 @@
       {
         "id": "C",
         "text": "Gate::create()"
-      },
-      {
-        "id": "D",
-        "text": "Gate::define()"
       }
     ],
     "correctAnswer": "Gate::define()",
@@ -5603,7 +5583,7 @@
       }
     ],
     "correctAnswer": "Route::get('/dashboard', function () {})->middleware('auth')",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 227,
@@ -5687,7 +5667,7 @@
     "options": [
       {
         "id": "A",
-        "text": "config() or Config facade"
+        "text": "Using the env function directly."
       },
       {
         "id": "B",
@@ -5778,7 +5758,7 @@
       }
     ],
     "correctAnswer": "Create a new file in the resources/lang directory",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 234,
@@ -5853,7 +5833,7 @@
       }
     ],
     "correctAnswer": "To store user data across multiple requests",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 237,
@@ -5878,7 +5858,7 @@
       }
     ],
     "correctAnswer": "To limit the number of requests to a route",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 238,
@@ -5895,7 +5875,7 @@
       },
       {
         "id": "C",
-        "text": "Route::respond"
+        "text": "Route::any('/endpoint', 'Controller@method');"
       },
       {
         "id": "D",
@@ -5903,7 +5883,7 @@
       }
     ],
     "correctAnswer": "Route::any('/endpoint', 'Controller@method');",
-    "correctIndex": 1
+    "correctIndex": 2
   },
   {
     "id": 239,
@@ -5928,7 +5908,7 @@
       }
     ],
     "correctAnswer": "To load relationships at the same time as the main model to reduce queries",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 240,
@@ -6033,7 +6013,7 @@
       },
       {
         "id": "B",
-        "text": "Updates is_published"
+        "text": "It retrieves all posts that have been published, using a query scope defined in the Post model."
       },
       {
         "id": "C",
@@ -6045,7 +6025,7 @@
       }
     ],
     "correctAnswer": "It retrieves all posts that have been published, using a query scope defined in the Post model.",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 245,
@@ -6070,7 +6050,7 @@
       }
     ],
     "correctAnswer": "To process jobs on the queue",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 246,
@@ -6091,11 +6071,11 @@
       },
       {
         "id": "D",
-        "text": "Encrypts cache"
+        "text": "It uses cache tagging to group related cache entries and cache locking to prevent race conditions, ensuring data consistency and efficient cache management."
       }
     ],
     "correctAnswer": "It uses cache tagging to group related cache entries and cache locking to prevent race conditions, ensuring data consistency and efficient cache management.",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 247,
@@ -6195,7 +6175,7 @@
       }
     ],
     "correctAnswer": "To specify how attributes should be cast to native types",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 251,
@@ -6245,7 +6225,7 @@
       }
     ],
     "correctAnswer": "It transforms the collection of User models into a standardized JSON format.",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 253,
@@ -6304,7 +6284,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Auth only on web routes"
+        "text": "It ensures that unauthenticated API requests receive a 401 Unauthorized response."
       },
       {
         "id": "B",
@@ -6329,7 +6309,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Polymorphic"
+        "text": "To define a many-to-many relationship."
       },
       {
         "id": "B",
@@ -6341,7 +6321,7 @@
       }
     ],
     "correctAnswer": "To define a many-to-many relationship.",
-    "correctIndex": 2
+    "correctIndex": 0
   },
   {
     "id": 257,
@@ -6425,7 +6405,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Lazy load"
+        "text": "It eagerly loads the associated posts relationship to reduce query count."
       },
       {
         "id": "B",
@@ -6466,7 +6446,7 @@
       }
     ],
     "correctAnswer": "Yes, each middleware can contain both before and after behaviors.",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 262,
@@ -6479,7 +6459,7 @@
       },
       {
         "id": "B",
-        "text": ".env flag"
+        "text": "By enabling event discovery in the EventServiceProvider"
       },
       {
         "id": "C",
@@ -6491,7 +6471,7 @@
       }
     ],
     "correctAnswer": "By enabling event discovery in the EventServiceProvider",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 263,
@@ -6541,7 +6521,7 @@
       }
     ],
     "correctAnswer": "php artisan make:controller ControllerName",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 265,
@@ -6616,7 +6596,7 @@
       }
     ],
     "correctAnswer": "It adds a deleted_at column to allow soft deletion of records.",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 268,
@@ -6641,7 +6621,7 @@
       }
     ],
     "correctAnswer": "{{-- Comment --}}",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 269,
@@ -6671,7 +6651,7 @@
   {
     "id": 270,
     "prompt": "Dispatch a job in Laravel?",
-    "code": "Dispatch a job in Laravel?",
+    "code": null,
     "options": [
       {
         "id": "A",
@@ -6691,7 +6671,7 @@
       }
     ],
     "correctAnswer": "ProcessPodcast::dispatch($podcast);",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 271,
@@ -7892,7 +7872,7 @@
       },
       {
         "id": "C",
-        "text": "It serves as the base controller class from which other controllers inherit common functionalities"
+        "text": "It stores application-generated files such as logs, compiled views, sessions, and uploads"
       },
       {
         "id": "D",
@@ -7900,7 +7880,7 @@
       }
     ],
     "correctAnswer": "It stores application-generated files such as logs, compiled views, sessions, and uploads",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 320,
@@ -7975,7 +7955,7 @@
       }
     ],
     "correctAnswer": "php artisan test",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 323,
@@ -8171,7 +8151,7 @@
       }
     ],
     "correctAnswer": "@foreach",
-    "correctIndex": 1
+    "correctIndex": 3
   },
   {
     "id": 331,
@@ -8468,14 +8448,10 @@
       },
       {
         "id": "B",
-        "text": "assertJsonStructure()"
-      },
-      {
-        "id": "C",
         "text": "assertJsonFormat()"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "assertJsonData()"
       }
     ],
@@ -11347,7 +11323,7 @@
       }
     ],
     "correctAnswer": "To eager load the 'posts' relationship for each user, reducing the number of queries",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 459,
@@ -11668,7 +11644,7 @@
       }
     ],
     "correctAnswer": "{{ }}",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 472,
