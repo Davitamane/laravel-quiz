@@ -476,8 +476,8 @@
   },
   {
     "id": 20,
-    "prompt": "What is the purpose of the Route::middleware('auth:sanctum') in Laravel?",
-    "code": null,
+    "prompt": "What is the purpose of the following in Laravel?",
+    "code": "Route::middleware('auth:sanctum')",
     "options": [
       {
         "id": "A",
@@ -4623,8 +4623,8 @@
   },
   {
     "id": 187,
-    "prompt": "What does the onUpdate('cascade') clause ensure in this migration? Schema::create('orders', function (Blueprint $table) { $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade'); });",
-    "code": null,
+    "prompt": "What does the onUpdate('cascade') clause ensure in this migration?",
+    "code": "Schema::create('orders', function (Blueprint $table) { $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade'); });",
     "options": [
       {
         "id": "A",
@@ -4669,8 +4669,8 @@
   },
   {
     "id": 189,
-    "prompt": "Given this User model: hasOne(Phone::class, 'owner_id', 'other_key')",
-    "code": null,
+    "prompt": "Given this User model?",
+    "code": "hasOne(Phone::class, 'owner_id', 'other_key')",
     "options": [
       {
         "id": "A",
@@ -4711,8 +4711,8 @@
   },
   {
     "id": 191,
-    "prompt": "How does Laravel protect against CSRF attacks? Form: <form method=\"POST\"><@csrf></form>",
-    "code": null,
+    "prompt": "How does Laravel protect against CSRF attacks?",
+    "code": "<form method=\"POST\"><@csrf></form>",
     "options": [
       {
         "id": "A",
@@ -4907,8 +4907,8 @@
   },
   {
     "id": 199,
-    "prompt": "What is the primary security benefit of using strip_tags() on user input? Code: $data['comment'] = strip_tags($data['comment']);",
-    "code": null,
+    "prompt": "What is the primary security benefit of using strip_tags() on user input?",
+    "code": "$data['comment'] = strip_tags($data['comment']);",
     "options": [
       {
         "id": "A",
@@ -5174,8 +5174,8 @@
   },
   {
     "id": 210,
-    "prompt": "What does whereHas() accomplish? User::whereHas('posts', fn($q) => $q->where('created_at', '>=', now()->subDays(30)))->get();",
-    "code": null,
+    "prompt": "What does whereHas() accomplish?",
+    "code": "User::whereHas('posts', fn($q) => $q->where('created_at', '>=', now()->subDays(30)))->get();",
     "options": [
       {
         "id": "A",
@@ -5249,8 +5249,8 @@
   },
   {
     "id": 213,
-    "prompt": "What is the purpose of withTrashed() in Post::withTrashed()->where('user_id', 1)->get();?",
-    "code": null,
+    "prompt": "What is the purpose of withTrashed()?",
+    "code": "Post::withTrashed()->where('user_id', 1)->get();",
     "options": [
       {
         "id": "A",
@@ -5324,8 +5324,8 @@
   },
   {
     "id": 216,
-    "prompt": "What effect does onDelete('cascade') have? foreign('user_id')->onDelete('cascade')",
-    "code": null,
+    "prompt": "What effect does onDelete('cascade') have?",
+    "code": "foreign('user_id')->onDelete('cascade')",
     "options": [
       {
         "id": "A",
@@ -5520,8 +5520,8 @@
   },
   {
     "id": 224,
-    "prompt": "Role of middleware: if ($request->age < 18) return redirect('home'); else return $next($request);",
-    "code": null,
+    "prompt": "Role of middleware?",
+    "code": "if ($request->age < 18) return redirect('home'); else return $next($request);",
     "options": [
       {
         "id": "A",
@@ -5712,8 +5712,8 @@
   },
   {
     "id": 232,
-    "prompt": "Role of UserResource in return response()->json(new UserResource($user), 200);?",
-    "code": null,
+    "prompt": "Role of UserResource?",
+    "code": "return response()->json(\n    new UserResource($user), 200\n);",
     "options": [
       {
         "id": "A",
@@ -5887,8 +5887,8 @@
   },
   {
     "id": 239,
-    "prompt": "Purpose of eager loading? User::with('posts')->get();",
-    "code": null,
+    "prompt": "Purpose of eager loading?",
+    "code": "User::with('posts')->get();",
     "options": [
       {
         "id": "A",
@@ -6004,8 +6004,8 @@
   },
   {
     "id": 244,
-    "prompt": "What does Post::published()->get() do?",
-    "code": null,
+    "prompt": "What does the following do?",
+    "code": "Post::published()->get()",
     "options": [
       {
         "id": "A",
@@ -6079,8 +6079,8 @@
   },
   {
     "id": 247,
-    "prompt": "Laravel CSRF protection in form with @csrf?",
-    "code": null,
+    "prompt": "Laravel CSRF protection?",
+    "code": "form with @csrf",
     "options": [
       {
         "id": "A",
@@ -6254,8 +6254,8 @@
   },
   {
     "id": 254,
-    "prompt": "True about $user->toJson() after makeVisible('is_admin') and makeHidden('email')? [OPTIONS NOT VISIBLE]",
-    "code": null,
+    "prompt": "True about the following?",
+    "code": "$user->toJson() after makeVisible('is_admin') and makeHidden('email')",
     "options": [
       {
         "id": "A",
@@ -6279,8 +6279,8 @@
   },
   {
     "id": 255,
-    "prompt": "What does test_api_authentication_failure verify? GET /api/profile assertStatus(401)",
-    "code": null,
+    "prompt": "What does test_api_authentication_failure verify?",
+    "code": "GET /api/profile assertStatus(401)",
     "options": [
       {
         "id": "A",
@@ -6304,8 +6304,8 @@
   },
   {
     "id": 256,
-    "prompt": "Purpose of belongsToMany in User::roles()?",
-    "code": null,
+    "prompt": "Purpose of belongsToMany?",
+    "code": "User::roles()",
     "options": [
       {
         "id": "A",
@@ -6400,8 +6400,8 @@
   },
   {
     "id": 260,
-    "prompt": "What does with('posts') do in User::with('posts')->find(1)?",
-    "code": null,
+    "prompt": "What does with('posts') do?",
+    "code": "User::with('posts')->find(1)",
     "options": [
       {
         "id": "A",
@@ -9311,7 +9311,7 @@
   {
     "id": 378,
     "prompt": "What is the role of UserResourceCollection in this API response?",
-    "code": "return response()->json(['data' => (new UserResourceCollection(User::all())), 'meta' => ['count' => User::count()]]);",
+    "code": "return response()->json(\n    ['data' => (new UserResourceCollection(User::all())), 'meta' => ['count' => User::count()]]\n);",
     "options": [
       {
         "id": "A",
@@ -11131,8 +11131,8 @@
   },
   {
     "id": 451,
-    "prompt": "What is the purpose of Laravel's Route::resource() method?",
-    "code": null,
+    "prompt": "What is the purpose of Laravel's following method?",
+    "code": "Route::resource()",
     "options": [
       {
         "id": "A",
@@ -11156,8 +11156,8 @@
   },
   {
     "id": 452,
-    "prompt": "Given this database configuration, which of the following is true? Code: return ['connections' => ['mysql' => ['read' => ['host' => ['192.168.1.1']], 'write' => ['host' => ['196.168.1.2']]]]];",
-    "code": null,
+    "prompt": "Given this database configuration, which of the following is true?",
+    "code": "return ['connections' => ['mysql' => ['read' => ['host' => ['192.168.1.1']], 'write' => ['host' => ['196.168.1.2']]]]];",
     "options": [
       {
         "id": "A",
@@ -11298,8 +11298,8 @@
   },
   {
     "id": 458,
-    "prompt": "What is the purpose of the with method in the following Eloquent query? Code: $users = User::with('posts')->get();",
-    "code": null,
+    "prompt": "What is the purpose of the with method in the following Eloquent query?",
+    "code": "$users = User::with('posts')->get();",
     "options": [
       {
         "id": "A",
@@ -11398,8 +11398,8 @@
   },
   {
     "id": 462,
-    "prompt": "Why is Event::fake() used at the beginning of this test?",
-    "code": null,
+    "prompt": "Why is the following used at the beginning of this test?",
+    "code": "Event::fake()",
     "options": [
       {
         "id": "A",
@@ -11423,8 +11423,8 @@
   },
   {
     "id": 463,
-    "prompt": "What is the purpose of the down method in the following migration class? Code: public function down() { Schema::dropIfExists('users'); }",
-    "code": null,
+    "prompt": "What is the purpose of the down method in the following migration class?",
+    "code": "public function down() { Schema::dropIfExists('users'); }",
     "options": [
       {
         "id": "A",
@@ -11448,8 +11448,8 @@
   },
   {
     "id": 464,
-    "prompt": "What will be the output of the following code snippet? Code: Route::get('/user/{id}', function ($id) { return User::findOrFail($id); });",
-    "code": null,
+    "prompt": "What will be the output of the following code snippet?",
+    "code": "Route::get('/user/{id}', function ($id) { return User::findOrFail($id); });",
     "options": [
       {
         "id": "A",
@@ -11569,8 +11569,8 @@
   },
   {
     "id": 469,
-    "prompt": "What is the purpose of the CheckRole middleware, and how is it used in a Laravel application? Code: handle() checks user hasRole($role) or redirects home; registered as 'role' middleware.",
-    "code": null,
+    "prompt": "What is the purpose of the CheckRole middleware, and how is it used in a Laravel application?",
+    "code": "handle() checks user hasRole($role) or redirects home; registered as 'role' middleware.",
     "options": [
       {
         "id": "A",
@@ -11594,8 +11594,8 @@
   },
   {
     "id": 470,
-    "prompt": "In the following code, what middleware is being applied to the route? Code: Route::get('/dashboard', 'DashboardController@index')->middleware('auth');",
-    "code": null,
+    "prompt": "In the following code, what middleware is being applied to the route?",
+    "code": "Route::get('/dashboard', 'DashboardController@index')->middleware('auth');",
     "options": [
       {
         "id": "A",
@@ -11744,8 +11744,8 @@
   },
   {
     "id": 476,
-    "prompt": "What effect does the onDelete('cascade') clause have in this migration? Code: foreign('user_id')->references('id')->on('users')->onDelete('cascade');",
-    "code": null,
+    "prompt": "What effect does the onDelete('cascade') clause have in this migration?",
+    "code": "foreign('user_id')->references('id')->on('users')->onDelete('cascade');",
     "options": [
       {
         "id": "A",
@@ -11790,8 +11790,8 @@
   },
   {
     "id": 478,
-    "prompt": "What does the posts method in the User model represent, and how is it used in a Laravel application? Code: public function posts() { return $this->hasMany(Post::class); }",
-    "code": null,
+    "prompt": "What does the posts method in the User model represent, and how is it used in a Laravel application?",
+    "code": "public function posts() { return $this->hasMany(Post::class); }",
     "options": [
       {
         "id": "A",
@@ -11815,8 +11815,8 @@
   },
   {
     "id": 479,
-    "prompt": "How do you define a query scope in a Laravel model? Code: public function scopePopular($query) { // Scope logic }",
-    "code": null,
+    "prompt": "How do you define a query scope in a Laravel model?",
+    "code": "public function scopePopular($query) { // Scope logic }",
     "options": [
       {
         "id": "A",
@@ -12090,8 +12090,8 @@
   },
   {
     "id": 490,
-    "prompt": "What is the primary security benefit of using strip_tags() on user input? Code: $data['comment'] = strip_tags($data['comment']);",
-    "code": null,
+    "prompt": "What is the primary security benefit of using strip_tags() on user input?",
+    "code": "$data['comment'] = strip_tags($data['comment']);",
     "options": [
       {
         "id": "A",
@@ -12215,8 +12215,8 @@
   },
   {
     "id": 495,
-    "prompt": "By convention, which of the following is true of the roles relationship in the User model? Code: return $this->belongsToMany(Role::class);",
-    "code": null,
+    "prompt": "By convention, which of the following is true of the roles relationship in the User model?",
+    "code": "return $this->belongsToMany(Role::class);",
     "options": [
       {
         "id": "A",
@@ -12290,8 +12290,8 @@
   },
   {
     "id": 498,
-    "prompt": "When the value of $name is \"<span>Laravel</span>\" what would be the output when using @{{ name }} in a Blade template?",
-    "code": null,
+    "prompt": "Given the variable and Blade syntax below, what would be the output?",
+    "code": "$name = \"<span>Laravel</span>\";\n@{{ name }}",
     "options": [
       {
         "id": "A",
@@ -12565,8 +12565,8 @@
   },
   {
     "id": 509,
-    "prompt": "What is the function of the @csrf directive in this form? Code: <form method=\"POST\"><input type=\"text\" name=\"name\">",
-    "code": null,
+    "prompt": "What is the function of the @csrf directive in this form?",
+    "code": "<form method=\"POST\"><input type=\"text\" name=\"name\">",
     "options": [
       {
         "id": "A",
@@ -12765,8 +12765,8 @@
   },
   {
     "id": 517,
-    "prompt": "What does the middleware accomplish in this snippet? Code: if ($request->header('X-API-TOKEN') !== config('app.api_token')) return 403;",
-    "code": null,
+    "prompt": "What does the middleware accomplish in this snippet?",
+    "code": "if ($request->header('X-API-TOKEN') !== config('app.api_token')) return 403;",
     "options": [
       {
         "id": "A",
@@ -12815,8 +12815,8 @@
   },
   {
     "id": 519,
-    "prompt": "In the AppServiceProvider, which Laravel feature is used to bind a specific implementation of PaymentGatewayInterface for the UserController? Code: $this->app->when(UserController::class)->needs(PaymentGatewayInterface::class)->give(StripePaymentGateway::class);",
-    "code": null,
+    "prompt": "In the AppServiceProvider, which Laravel feature is used to bind a specific implementation of PaymentGatewayInterface for the UserController?",
+    "code": "$this->app->when(UserController::class)->needs(PaymentGatewayInterface::class)->give(StripePaymentGateway::class);",
     "options": [
       {
         "id": "A",
@@ -12840,8 +12840,8 @@
   },
   {
     "id": 520,
-    "prompt": "Which of the following is true about the output of $user->toJson()? Code: $appends = ['has_subscription']; accessor returns subscription_type != ''; subscription_type => 3.",
-    "code": null,
+    "prompt": "Which of the following is true about the output of $user->toJson()?",
+    "code": "$appends = ['has_subscription']; accessor returns subscription_type != ''; subscription_type => 3.",
     "options": [
       {
         "id": "A",
@@ -13340,8 +13340,8 @@
   },
   {
     "id": 540,
-    "prompt": "What role does the when() method play in this query? Code: User::where('status','active')->when(request('role'), fn($q,$role) => $q->where('role',$role))->get();",
-    "code": null,
+    "prompt": "What role does the when() method play in this query?",
+    "code": "User::where('status','active')->when(request('role'), fn($q,$role) => $q->where('role',$role))->get();",
     "options": [
       {
         "id": "A",

@@ -16,19 +16,40 @@ CODE_START = re.compile(
     r"\{|\}|/\*|@if|@csrf|@yield|@extends|@section|"
     r"SESSION_|APP_|Cache::|Mail::|Event::|::dispatch|dispatch\(|"
     r"Illuminate\\|implements |extends Model|"
-    r"upload\(|validate\(|middleware|->|\[\])",
+    r"upload\(|validate\(|->middleware\(|\[\])",
     re.I,
 )
 
 CODE_LIKE = re.compile(
-    r"(<\?php|//|\$\w+|Route::|Schema::|DB::|Broadcast::|MyJob::|"
+    r"(<\?php|//|<form|\$\w+|Route::|Schema::|DB::|Broadcast::|MyJob::|"
     r"public function|protected function|private function|"
-    r"class \w+|php artisan|@csrf|@if|@foreach|@extends|"
-    r"\w+::\w+\(|[\$]\w+.*->|'[\w_]+'\s*=>|\[\s*'[\w_]+'\s*=>)",
+    r"class \w+|php artisan|@csrf|<@csrf|@if|@foreach|@extends|"
+    r"\w+::\w+\(|[\$]\w+.*->|'[\w_]+'\s*=>|\[\s*'[\w_]+'\s*=>|"
+    r"foreign\(|hasOne\(|hasMany\(|belongsTo|strip_tags\(|fn\s*\(|"
+    r"return response\(\)|if\s*\(\$)",
     re.I,
 )
 
-INCOMPLETE_MARKER = re.compile(r"\[[^\]]*INCOMPLETE[^\]]*\]", re.I)
+PROSE_IN_SUFFIX = re.compile(
+    r"^(?:the following(?:\s+\w+)*|this(?:\s+\w+){0,3}|a(?:n)?(?:\s+\w+){0,4}|"
+    r"laravel(?:\s+\w+){0,4}|eloquent(?:\s+\w+){0,3})$",
+    re.I,
+)
+
+SINGLE_WORD_NOT_CODE = frozenset(
+    {
+        "middleware",
+        "controller",
+        "migration",
+        "validation",
+        "authentication",
+        "authorization",
+        "eloquent",
+        "laravel",
+    }
+)
+
+INCOMPLETE_MARKER = re.compile(r"\[[^\]]*(?:INCOMPLETE|NOT VISIBLE)[^\]]*\]", re.I)
 
 STOP_WORDS = frozenset(
     "a an the to it is of in and or for that as by with on at be this from are was".split()
@@ -52,6 +73,119 @@ def looks_like_code(stripped: str) -> bool:
     if re.search(r"\w+::\w+", stripped) and stripped.rstrip().endswith(";"):
         return True
     return False
+
+
+def is_likely_code_fragment(text: str) -> bool:
+    text = text.strip().rstrip("?")
+    if not text:
+        return False
+    if text.lower() in SINGLE_WORD_NOT_CODE:
+        return False
+    if looks_like_code(text):
+        return True
+    if re.search(r"(::|->|\$\w|\([^)]*\)|function\s*\(|;\s*$|<\w|foreign\()", text):
+        return True
+    return False
+
+
+def is_prose_suffix(text: str) -> bool:
+    cleaned = re.sub(r"\s+", " ", text.strip().rstrip("?").lower())
+    if cleaned in {"laravel", "eloquent orm", "this migration", "a laravel application"}:
+        return True
+    return bool(PROSE_IN_SUFFIX.match(cleaned))
+
+
+def extract_inline_code_from_prompt(prompt: str) -> tuple[str, str | None]:
+    """Split code snippets that were left inline in a single-line prompt."""
+    if not prompt or "\n" in prompt:
+        return prompt, None
+
+    stripped = prompt.strip()
+
+    # Question ending with ?, then optional label + code snippet.
+    match = re.match(r"^(.*?\?)\s+(?:Code:\s*|Form:\s*)?(.+)$", stripped, re.S)
+    if match:
+        question, remainder = match.group(1).strip(), match.group(2).strip()
+        if is_likely_code_fragment(remainder):
+            return question, remainder
+
+    # Label-style intro: "Given this User model: hasOne(...)" or "Role of middleware: if (...)"
+    match = re.match(r"^(.+?:)\s+(.+)$", stripped)
+    if match:
+        prefix, remainder = match.group(1).strip(), match.group(2).strip()
+        lower_prefix = prefix.lower()
+        if (
+            is_likely_code_fragment(remainder)
+            and not remainder.endswith("?")
+            and lower_prefix not in {"options:", "a:", "b:", "c:", "d:"}
+        ):
+            question = prefix.rstrip(":").strip()
+            if not question.endswith("?"):
+                question += "?"
+            return question, remainder
+
+    # "... in CODE" where the suffix is a code fragment, not prose.
+    match = re.search(r"\sin\s+(.+)$", stripped, re.I)
+    if match:
+        suffix = match.group(1).rstrip("?").strip()
+        if is_likely_code_fragment(suffix) and not is_prose_suffix(suffix):
+            question = stripped[: match.start()].strip()
+            if not question.endswith("?"):
+                question += "?"
+            return question, suffix
+
+    # "What does Post::published()->get() do?"
+    match = re.match(r"^What does (.+?) do\?$", stripped, re.I)
+    if match and is_likely_code_fragment(match.group(1)):
+        return "What does the following do?", match.group(1).strip()
+
+    # "the Route::middleware('auth:sanctum') in Laravel?"
+    match = re.search(
+        r"^(.+?\s)the\s+((?:[\w\\]+::)?[\w]+\([^)]*\))\s+in Laravel\?$",
+        stripped,
+        re.I,
+    )
+    if match and is_likely_code_fragment(match.group(2)):
+        return f"{match.group(1).strip()} the following in Laravel?", match.group(2).strip()
+
+    # "Laravel's Route::resource() method?"
+    match = re.match(r"^(.+?) Laravel's (\S+) method\?$", stripped, re.I)
+    if match and is_likely_code_fragment(match.group(2)):
+        return f"{match.group(1).strip()} Laravel's following method?", match.group(2).strip()
+
+    # "Why is Event::fake() used at the beginning of this test?"
+    match = re.match(
+        r"^(Why is\s+)([\w\\]+(?:::\w+)?(?:\([^)]*\))?)(\s+used.+)$",
+        stripped,
+        re.I,
+    )
+    if match:
+        return f"{match.group(1).strip()} the following{match.group(3)}", match.group(2).strip()
+
+    # "True about $user->toJson() after makeVisible(...)?"
+    match = re.match(r"^(True about\s+)(.+?)(?:\s*\[[^\]]*\])?\?$", stripped, re.I)
+    if match and is_likely_code_fragment(match.group(2)):
+        return "True about the following?", match.group(2).strip()
+
+    # Blade: $name is "<span>Laravel</span>" ... using @{{ name }}
+    var_match = re.search(r"\$(\w+) is \"([^\"]+)\"", stripped)
+    blade_match = re.search(r"using (@?\{\{[^}]+\}\})", stripped)
+    if var_match and blade_match:
+        code = f'${var_match.group(1)} = "{var_match.group(2)}";\n{blade_match.group(1)}'
+        question = re.sub(
+            r"^When the value of \$\w+ is \"[^\"]+\"\s*",
+            "Given the variable and Blade syntax below, ",
+            stripped,
+        )
+        question = re.sub(
+            r"what would be the output when using @?\{\{[^}]+\}\}\s*in a Blade template\?",
+            "what would be the output?",
+            question,
+            flags=re.I,
+        )
+        return question.strip(), code
+
+    return prompt, None
 
 
 def load_entries():
@@ -235,6 +369,18 @@ def ensure_answer_in_options(options, answer: str) -> tuple[list[dict], int]:
     return options, correct_index
 
 
+def prettify_code(code: str) -> str:
+    """Break dense one-line PHP snippets onto multiple lines for readability."""
+    if not code or "\n" in code:
+        return code
+
+    if code.startswith("return response()->json(") and code.endswith(");"):
+        inner = code[len("return response()->json(") : -2].strip()
+        return f"return response()->json(\n    {inner}\n);"
+
+    return code
+
+
 def build_question(num: int, raw_q: str, answer: str) -> dict:
     raw_q = normalize_raw_text(raw_q)
     answer = normalize_raw_text(answer)
@@ -249,8 +395,18 @@ def build_question(num: int, raw_q: str, answer: str) -> dict:
     if not prompt:
         prompt = raw_q.split("\n")[0][:500]
 
+    prompt = clean_placeholder_markers(prompt)
+
     if code and normalize_text_for_match(code) == normalize_text_for_match(prompt):
         code = None
+
+    if not code:
+        prompt, inline_code = extract_inline_code_from_prompt(prompt)
+        if inline_code:
+            code = inline_code
+
+    if code:
+        code = prettify_code(code)
 
     options, correct_index = ensure_answer_in_options(options or [], answer)
 
