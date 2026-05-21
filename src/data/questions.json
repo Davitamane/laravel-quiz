@@ -2765,6 +2765,10 @@
       {
         "id": "C",
         "text": "It handles the pagination of the user list."
+      },
+      {
+        "id": "D",
+        "text": "It applies authorization policies to each user in the collection."
       }
     ],
     "correctAnswer": "It transforms the entire user collection into a standardized JSON structure.",
@@ -3311,6 +3315,10 @@
       {
         "id": "C",
         "text": "To define a polymorphic one-to-many relationship."
+      },
+      {
+        "id": "D",
+        "text": "To define a polymorphic many-to-many relationship."
       }
     ],
     "correctAnswer": "To define a polymorphic one-to-many relationship.",
@@ -3374,6 +3382,18 @@
       {
         "id": "A",
         "text": "It confirms that a user can log in and is redirected to /home."
+      },
+      {
+        "id": "B",
+        "text": "It confirms that invalid credentials return a 422 validation error."
+      },
+      {
+        "id": "C",
+        "text": "It confirms that a user can register a new account via the /register route."
+      },
+      {
+        "id": "D",
+        "text": "It confirms that a logged-in user can access the /dashboard route."
       }
     ],
     "correctAnswer": "It confirms that a user can log in and is redirected to /home.",
@@ -4045,6 +4065,10 @@
       {
         "id": "C",
         "text": "[[1, 2], [3, 4], [5, 6], [7]]"
+      },
+      {
+        "id": "D",
+        "text": "[[1, 2, 3], [4, 5, 6], [7]]"
       }
     ],
     "correctAnswer": "[[1, 2, 3, 4], [5, 6, 7]]",
@@ -4466,6 +4490,10 @@
       {
         "id": "C",
         "text": "assertDirectoryHasFile()"
+      },
+      {
+        "id": "D",
+        "text": "assertStorageExists()"
       }
     ],
     "correctAnswer": "assertFileExists()",
@@ -4637,6 +4665,10 @@
       {
         "id": "C",
         "text": "It restricts deletion of users with related orders."
+      },
+      {
+        "id": "D",
+        "text": "It automatically updates foreign key values in related records when the referenced ID changes."
       }
     ],
     "correctAnswer": "It prevents updating the user ID in orders if the user changes.",
@@ -4679,6 +4711,14 @@
       {
         "id": "B",
         "text": "owner_id is the foreign key on phones; other_key is the local key on users (inferred)"
+      },
+      {
+        "id": "C",
+        "text": "other_key is the foreign key on phones; owner_id is the local key on users"
+      },
+      {
+        "id": "D",
+        "text": "Both owner_id and other_key are foreign keys on the phones table"
       }
     ],
     "correctAnswer": "owner_id is the foreign key on phones; other_key is the local key on users (inferred)",
@@ -4775,6 +4815,10 @@
       {
         "id": "C",
         "text": "order()"
+      },
+      {
+        "id": "D",
+        "text": "dispatchSync()"
       }
     ],
     "correctAnswer": "chain()",
@@ -4921,6 +4965,10 @@
       {
         "id": "C",
         "text": "It caches sanitized input"
+      },
+      {
+        "id": "D",
+        "text": "It encrypts user input before storing it in the database"
       }
     ],
     "correctAnswer": "It removes any HTML tags, helping to prevent potential XSS attacks.",
@@ -4992,6 +5040,10 @@
       {
         "id": "C",
         "text": "@sectionExists"
+      },
+      {
+        "id": "D",
+        "text": "@yieldSection"
       }
     ],
     "correctAnswer": "@hasSection",
@@ -5488,6 +5540,10 @@
       {
         "id": "C",
         "text": "Gate::create()"
+      },
+      {
+        "id": "D",
+        "text": "Gate::allows()"
       }
     ],
     "correctAnswer": "Gate::define()",
@@ -5530,6 +5586,14 @@
       {
         "id": "B",
         "text": "Filter HTTP requests entering the application"
+      },
+      {
+        "id": "C",
+        "text": "Handle database migrations"
+      },
+      {
+        "id": "D",
+        "text": "Render Blade templates"
       }
     ],
     "correctAnswer": "To filter HTTP requests entering the application",
@@ -5997,6 +6061,14 @@
       {
         "id": "B",
         "text": "Converts password to UUID"
+      },
+      {
+        "id": "C",
+        "text": "Encrypts the password for transmission over HTTPS"
+      },
+      {
+        "id": "D",
+        "text": "Stores the password in plain text for fast retrieval"
       }
     ],
     "correctAnswer": "It securely hashes the user's password prior to storage, protecting sensitive data.",
@@ -6318,6 +6390,10 @@
       {
         "id": "C",
         "text": "Many-to-many"
+      },
+      {
+        "id": "D",
+        "text": "To define a one-to-one relationship."
       }
     ],
     "correctAnswer": "To define a many-to-many relationship.",
@@ -6864,6 +6940,10 @@
       {
         "id": "C",
         "text": "show"
+      },
+      {
+        "id": "D",
+        "text": "index"
       }
     ],
     "correctAnswer": "view",
@@ -7081,6 +7161,14 @@
       {
         "id": "B",
         "text": "Route::pattern('id', '[0-9]+')"
+      },
+      {
+        "id": "C",
+        "text": "Route::where('id', '[0-9]+')"
+      },
+      {
+        "id": "D",
+        "text": "Route::constraint('id', '[0-9]+')"
       }
     ],
     "correctAnswer": "Route::pattern('id', '[0-9]+')",
@@ -7827,6 +7915,10 @@
       {
         "id": "C",
         "text": "To define a has-many-through relationship, allowing access to posts through users."
+      },
+      {
+        "id": "D",
+        "text": "To define a polymorphic relationship."
       }
     ],
     "correctAnswer": "To define a has-many-through relationship, allowing access to posts through users.",
@@ -8048,6 +8140,10 @@
       {
         "id": "C",
         "text": "The output contains only the name key/value."
+      },
+      {
+        "id": "D",
+        "text": "The output is an empty array."
       }
     ],
     "correctAnswer": "The output contains only the framework key/value.",
@@ -8219,6 +8315,10 @@
       {
         "id": "C",
         "text": "It transforms the collection of User models into a standardized JSON format."
+      },
+      {
+        "id": "D",
+        "text": "It paginates the user collection automatically."
       }
     ],
     "correctAnswer": "It transforms the collection of User models into a standardized JSON format.",
@@ -8290,6 +8390,10 @@
       {
         "id": "C",
         "text": "<span>Laravel</span>"
+      },
+      {
+        "id": "D",
+        "text": "Laravel (with the script stripped out)"
       }
     ],
     "correctAnswer": "&lt;span&gt;Laravel&lt;/span&gt;&lt;script&gt;alert(&quot;foobar&quot;);&lt;/script&gt;",
@@ -8332,6 +8436,14 @@
       {
         "id": "B",
         "text": "That the total order amount is equal to the sum of its order items' prices."
+      },
+      {
+        "id": "C",
+        "text": "That order items are deleted when the order is soft-deleted."
+      },
+      {
+        "id": "D",
+        "text": "That each order item must have a unique price value."
       }
     ],
     "correctAnswer": "That the total order amount is equal to the sum of its order items' prices.",
@@ -8453,6 +8565,10 @@
       {
         "id": "C",
         "text": "assertJsonData()"
+      },
+      {
+        "id": "D",
+        "text": "assertJsonMatch()"
       }
     ],
     "correctAnswer": "assertJsonStructure()",
@@ -10624,6 +10740,10 @@
       {
         "id": "C",
         "text": "To manage user authentication"
+      },
+      {
+        "id": "D",
+        "text": "To compress API response payloads"
       }
     ],
     "correctAnswer": "To prevent abuse by limiting the number of requests a user can make",
@@ -11216,6 +11336,14 @@
       {
         "id": "B",
         "text": "Blade::directive('name', function() { ... });"
+      },
+      {
+        "id": "C",
+        "text": "Blade::extend('name', function() { ... });"
+      },
+      {
+        "id": "D",
+        "text": "@directive('name')"
       }
     ],
     "correctAnswer": "Blade::directive('name', function() { ... });",
@@ -11462,6 +11590,10 @@
       {
         "id": "C",
         "text": "It will return the user with the given ID or throw a ModelNotFoundException if not found"
+      },
+      {
+        "id": "D",
+        "text": "It will return null if the user is not found"
       }
     ],
     "correctAnswer": "It will return the user with the given ID or throw a ModelNotFoundException if not found",
@@ -11758,6 +11890,10 @@
       {
         "id": "C",
         "text": "It allows updating foreign keys of posts automatically"
+      },
+      {
+        "id": "D",
+        "text": "It nullifies the user_id on posts when the associated user is deleted"
       }
     ],
     "correctAnswer": "It automatically deletes posts when the associated user is deleted",
