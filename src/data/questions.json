@@ -401,8 +401,8 @@
   },
   {
     "id": 17,
-    "prompt": "What is the purpose of the dispatch method in the following code?\nMyJob::dispatch($data);",
-    "code": null,
+    "prompt": "What is the purpose of the dispatch method in the following code?",
+    "code": "MyJob::dispatch($data);",
     "options": [
       {
         "id": "A",
@@ -602,7 +602,7 @@
   {
     "id": 25,
     "prompt": "Given the following routes, when you visit \"http://localhost/user\" what is the output?",
-    "code": "<?php\nRoute::get('user/{id?}', function ($id = null) { return 'User #' . $id; });\nRoute::get('user', function () { return 'Default User'; });",
+    "code": "Given the following routes, when you visit \"http://localhost/user\" what is the output?\n<?php\nRoute::get('user/{id?}', function ($id = null) { return 'User #' . $id; });\nRoute::get('user', function () { return 'Default User'; });",
     "options": [
       {
         "id": "A",
@@ -826,8 +826,8 @@
   },
   {
     "id": 34,
-    "prompt": "Where do you define broadcast channels in Laravel?\nBroadcast::channel('order.{orderId}', function ($user, $orderId) {",
-    "code": "return true;\n});",
+    "prompt": "Where do you define broadcast channels in Laravel?",
+    "code": "Broadcast::channel('order.{orderId}', function ($user, $orderId) {\n    return true;\n});",
     "options": [
       {
         "id": "A",
@@ -1152,7 +1152,7 @@
   {
     "id": 47,
     "prompt": "What is the function of the @csrf directive in this form?",
-    "code": "// File: csrf_form.blade.php\n<form method=\"POST\" action=\"/submit\">\n    @csrf\n    <input type=\"text\" name=\"name\">\n    <button type=\"submit\">Submit</button>\n</form>",
+    "code": "What is the function of the @csrf directive in this form?\n// File: csrf_form.blade.php\n<form method=\"POST\" action=\"/submit\">\n    @csrf\n    <input type=\"text\" name=\"name\">\n    <button type=\"submit\">Submit</button>\n</form>",
     "options": [
       {
         "id": "A",
@@ -1677,7 +1677,7 @@
   {
     "id": 68,
     "prompt": "Given this code, what is the type of $x?",
-    "code": "<?php\nclass User extends Eloquent\n{\n    public function orders()\n    {\n        return $this->hasMany(Order::class);\n    }\n}\n$x = $user->orders()->get();",
+    "code": "Given this code, what is the type of $x?\n<?php\nclass User extends Eloquent\n{\n    public function orders()\n    {\n        return $this->hasMany(Order::class);\n    }\n}\n$x = $user->orders()->get();",
     "options": [
       {
         "id": "A",
@@ -2127,7 +2127,7 @@
   {
     "id": 86,
     "prompt": "Which of the following is true of $output?",
-    "code": "<?php\nclass Post extends Model\n{\n    public function author()\n    {\n        return $this->belongsTo(User::class)->withDefault();\n    }\n}\n$post = new Post();\n$post->author_id = null;\n$output = $post->author;",
+    "code": "Which of the following is true of $output?\n<?php\nclass Post extends Model\n{\n    public function author()\n    {\n        return $this->belongsTo(User::class)->withDefault();\n    }\n}\n$post = new Post();\n$post->author_id = null;\n$output = $post->author;",
     "options": [
       {
         "id": "A",
@@ -4032,7 +4032,7 @@
   {
     "id": 163,
     "prompt": "What is the value of $chunked?",
-    "code": "<?php\n$collection = collect([1, 2, 3, 4, 5, 6, 7]);\n$chunked = $collection->chunk(4)->toArray();",
+    "code": "What is the value of $chunked?\n<?php\n$collection = collect([1, 2, 3, 4, 5, 6, 7]);\n$chunked = $collection->chunk(4)->toArray();",
     "options": [
       {
         "id": "A",
@@ -5000,7 +5000,7 @@
   {
     "id": 203,
     "prompt": "Given that I point my browser to http://mysite.com/hi, which of the following occurs?",
-    "code": "Route::match('/hi', function() {\n    return view('hello_world');\n});",
+    "code": "Given that I point my browser to http://mysite.com/hi, which of the following occurs?\nRoute::match('/hi', function() {\n    return view('hello_world');\n});",
     "options": [
       {
         "id": "A",
@@ -7114,7 +7114,7 @@
   {
     "id": 289,
     "prompt": "What is the resulting value of $total?",
-    "code": "<?php\n$collection = collect([1, 2, 3]);\n$total = $collection->reduce(function ($carry, $item) {\n    return $carry + $item;\n}, 2);",
+    "code": "What is the resulting value of $total?\n<?php\n$collection = collect([1, 2, 3]);\n$total = $collection->reduce(function ($carry, $item) {\n    return $carry + $item;\n}, 2);",
     "options": [
       {
         "id": "A",
@@ -7339,7 +7339,7 @@
   {
     "id": 298,
     "prompt": "Which of the following is true of $output?",
-    "code": "<?php\nclass Post extends Model\n{\n    public function author()\n    {\n        return $this->belongsTo(User::class)->withDefault();\n    }\n}\n$post = new Post();\n$post->author_id = null;\n$output = $post->author;",
+    "code": "Which of the following is true of $output?\n<?php\nclass Post extends Model\n{\n    public function author()\n    {\n        return $this->belongsTo(User::class)->withDefault();\n    }\n}\n$post = new Post();\n$post->author_id = null;\n$output = $post->author;",
     "options": [
       {
         "id": "A",
@@ -8035,7 +8035,7 @@
   {
     "id": 326,
     "prompt": "Which is true of the output of $collection->all()?",
-    "code": "<?php\n$collection = collect(['name' => 'taylor', 'framework' => 'laravel']);\n$collection->forget('name');\n$output = $collection->all();",
+    "code": "Which is true of the output of $collection->all()?\n<?php\n$collection = collect(['name' => 'taylor', 'framework' => 'laravel']);\n$collection->forget('name');\n$output = $collection->all();",
     "options": [
       {
         "id": "A",
@@ -8277,7 +8277,7 @@
   {
     "id": 336,
     "prompt": "What is sent to the browser given that $var is output in a Blade template?",
-    "code": "<?php\n$var = '<span>Laravel</span><script>alert(\"foobar\");</script>';\n// in a Blade template\n{{ $var }}",
+    "code": "What is sent to the browser given that $var is output in a Blade template?\n<?php\n$var = '<span>Laravel</span><script>alert(\"foobar\");</script>';\n// in a Blade template\n{{ $var }}",
     "options": [
       {
         "id": "A",
@@ -8860,33 +8860,33 @@
   },
   {
     "id": 360,
-    "prompt": "What is the middleware doing with the response?\\n// File: LogRequestMiddleware.php\\npublic function handle($request, Closure $next)\\n{\\n    \\\\Log::info('Request URL: ' . $request->fullUrl());\\n    $response = $next($request);\\n    $response->headers->set('X-App-Timestamp', now()->toAtomString());\\n    return $response;\\n}\\nA) It caches the response for future requests.\\nB) It validates the response status code.\\nC) It appends a custom header with a timestamp to the response.\\nD) It logs the response body to the system log.",
-    "code": null,
+    "prompt": "What is the middleware doing with the response?",
+    "code": "// File: LogRequestMiddleware.php\npublic function handle($request, Closure $next)\n{\n    \\\\Log::info('Request URL: ' . $request->fullUrl());\n    $response = $next($request);\n    $response->headers->set('X-App-Timestamp', now()->toAtomString());\n    return $response;\n}",
     "options": [
       {
         "id": "A",
-        "text": "It appends a custom header with a timestamp to the response."
+        "text": "It caches the response for future requests."
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "It validates the response status code."
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "It appends a custom header with a timestamp to the response."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It logs the response body to the system log."
       }
     ],
     "correctAnswer": "It appends a custom header with a timestamp to the response.",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 361,
-    "prompt": "Assuming that $post contains 4 comments, which of the following is true about the output of $post->toArray?\\n<?php\\nclass Post extends Model\\n{\\n    public function comments()\\n    {\\n        return $this->hasMany('App\\\\Comment');\\n    }\\n}\\n[OPTIONS INCOMPLETE - cropped screenshot]",
-    "code": null,
+    "prompt": "Assuming that $post contains 4 comments, which of the following is true about the output of $post->toArray?",
+    "code": "Assuming that $post contains 4 comments, which of the following is true about the output of $post->toArray?\n<?php\nclass Post extends Model\n{\n    public function comments()\n    {\n        return $this->hasMany('App\\\\Comment');\n    }\n}",
     "options": [
       {
         "id": "A",
@@ -8910,32 +8910,32 @@
   },
   {
     "id": 362,
-    "prompt": "What will the following code snippet do?\\n$user = User::find(1);\\n$user->roles()->sync([1, 2, 3]);\\nA) It will do nothing.\\nB) It will remove roles 1, 2, and 3 from the user.\\nC) It will add roles 1, 2, and 3 to the user without removing existing roles.\\nD) It will update the user's roles to 1, 2, and 3, removing any other roles.",
-    "code": null,
+    "prompt": "What will the following code snippet do?",
+    "code": "$user = User::find(1);\n$user->roles()->sync([1, 2, 3]);",
     "options": [
       {
         "id": "A",
-        "text": "It will update the user's roles to 1, 2, and 3, removing any other roles."
+        "text": "It will do nothing."
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "It will remove roles 1, 2, and 3 from the user."
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "It will add roles 1, 2, and 3 to the user without removing existing roles."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It will update the user's roles to 1, 2, and 3, removing any other roles."
       }
     ],
     "correctAnswer": "It will update the user's roles to 1, 2, and 3, removing any other roles.",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 363,
-    "prompt": "What is the purpose of the Route::prefix() method in Laravel?\\nA) To group routes under a common URI prefix\\nB) To define a single API route\\nC) To create a new API controller\\nD) To handle token-based authentication",
+    "prompt": "What is the purpose of the Route::prefix() method in Laravel?",
     "code": null,
     "options": [
       {
@@ -8944,15 +8944,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To define a single API route"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To create a new API controller"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To handle token-based authentication"
       }
     ],
     "correctAnswer": "To group routes under a common URI prefix",
@@ -8960,8 +8960,8 @@
   },
   {
     "id": 364,
-    "prompt": "How does the scopeRecent method in the Order model improve query efficiency, and what is its role in Eloquent ORM?\\n// app/Models/Order.php\\nclass Order extends Model\\n{\\n    public function scopeRecent($query)\\n    {\\n        return $query->where('created_at', '>=', now()->subWeek());\\n    }\\n}\\n[OPTIONS INCOMPLETE - cropped screenshot]",
-    "code": null,
+    "prompt": "How does the scopeRecent method in the Order model improve query efficiency, and what is its role in Eloquent ORM?",
+    "code": "// app/Models/Order.php\nclass Order extends Model\n{\n    public function scopeRecent($query)\n    {\n        return $query->where('created_at', '>=', now()->subWeek());\n    }\n}",
     "options": [
       {
         "id": "A",
@@ -8985,8 +8985,8 @@
   },
   {
     "id": 365,
-    "prompt": "Given this code, what is the type of $x?\\n$x = $user->orders()->get();\\n[OPTIONS INCOMPLETE - cropped screenshot]",
-    "code": null,
+    "prompt": "Given this code, what is the type of $x?",
+    "code": "Given this code, what is the type of $x?\n$x = $user->orders()->get();",
     "options": [
       {
         "id": "A",
@@ -9010,58 +9010,58 @@
   },
   {
     "id": 366,
-    "prompt": "What is the purpose of the boot method in the following Eloquent model?\\nclass User extends Model\\n{\\n    protected static function boot()\\n    {\\n        parent::boot();\\n        static::creating(function ($user) {\\n            $user->api_token = Str::random(60);\\n        });\\n    }\\n}\\nA) To define a relationship.\\nB) To register model events.\\nC) To set the database table name.\\nD) To define custom validation rules.",
-    "code": null,
+    "prompt": "What is the purpose of the boot method in the following Eloquent model?",
+    "code": "class User extends Model\n{\n    protected static function boot()\n    {\n        parent::boot();\n        static::creating(function ($user) {\n            $user->api_token = Str::random(60);\n        });\n    }\n}",
     "options": [
       {
         "id": "A",
+        "text": "To define a relationship."
+      },
+      {
+        "id": "B",
         "text": "To register model events."
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "To set the database table name."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To define custom validation rules."
       }
     ],
     "correctAnswer": "To register model events.",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 367,
-    "prompt": "What is the purpose of eager loading in Eloquent, as shown in the following code?\\n$users = User::with('posts')->get();\\nA) To delay loading of relationships until they are accessed\\nB) To load relationships at the same time as the main model to reduce queries\\nC) To load relationships only when needed\\nD) To cache relationships for future use",
-    "code": null,
+    "prompt": "What is the purpose of eager loading in Eloquent, as shown in the following code?",
+    "code": "$users = User::with('posts')->get();",
     "options": [
       {
         "id": "A",
-        "text": "To load relationships at the same time as the main model to reduce queries"
+        "text": "To delay loading of relationships until they are accessed"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To load relationships at the same time as the main model to reduce queries"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To load relationships only when needed"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To cache relationships for future use"
       }
     ],
     "correctAnswer": "To load relationships at the same time as the main model to reduce queries",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 368,
-    "prompt": "Which of the following is true about the output of $user->toJson()?\\nclass User extends Model\\n{\\n    protected $fillable = ['first_name', 'email', 'subscription_type'];\\n    protected $appends = ['has_subscription'];\\n    public function getHasSubscriptionAttribute() {\\n        return $this->attributes['subscription_type'] != '';\\n    }\\n}\\n$user = User::create(['first_name' => 'Jane', 'email' => 'example@laravelcert.com']);\\n[OPTIONS INCOMPLETE - cropped screenshot]",
-    "code": null,
+    "prompt": "Which of the following is true about the output of $user->toJson()?",
+    "code": "Which of the following is true about the output of $user->toJson()?\nclass User extends Model\n{\n    protected $fillable = ['first_name', 'email', 'subscription_type'];\n    protected $appends = ['has_subscription'];\n    public function getHasSubscriptionAttribute() {\n        return $this->attributes['subscription_type'] != '';\n    }\n}\n$user = User::create(['first_name' => 'Jane', 'email' => 'example@laravelcert.com']);",
     "options": [
       {
         "id": "A",
@@ -9085,8 +9085,8 @@
   },
   {
     "id": 369,
-    "prompt": "What is the purpose of implementing the MessageSent event as a broadcast event, and how does it facilitate real-time communication in a Laravel application?\\nclass MessageSent implements ShouldBroadcast\\n{\\n    use InteractsWithSockets, SerializesModels;\\n    public $message;\\n}\\n[OPTIONS INCOMPLETE - cropped screenshot]",
-    "code": null,
+    "prompt": "What is the purpose of implementing the MessageSent event as a broadcast event, and how does it facilitate real-time communication in a Laravel application?",
+    "code": "class MessageSent implements ShouldBroadcast\n{\n    use InteractsWithSockets, SerializesModels;\n    public $message;\n}",
     "options": [
       {
         "id": "A",
@@ -9110,108 +9110,108 @@
   },
   {
     "id": 370,
-    "prompt": "You are defining a policy for a Post model. Which method should you use to determine if a user can update a post?\\npublic function update(User $user, Post $post) {\\nA) return $user->can('edit');\\nB) return $user->id === $post->user_id;\\nC) return $user->role === 'admin';\\nD) return $post->isPublished();",
-    "code": null,
+    "prompt": "You are defining a policy for a Post model. Which method should you use to determine if a user can update a post?",
+    "code": "public function update(User $user, Post $post) {",
     "options": [
       {
         "id": "A",
+        "text": "return $user->can('edit');"
+      },
+      {
+        "id": "B",
         "text": "return $user->id === $post->user_id;"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "return $user->role === 'admin';"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "return $post->isPublished();"
       }
     ],
     "correctAnswer": "return $user->id === $post->user_id;",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 371,
-    "prompt": "Which directive is used to extend a layout in Blade?\\nA) @use\\nB) @extends\\nC) @layout\\nD) @inherit",
+    "prompt": "Which directive is used to extend a layout in Blade?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "@use"
+      },
+      {
+        "id": "B",
         "text": "@extends"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "@layout"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "@inherit"
       }
     ],
     "correctAnswer": "@extends",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 372,
-    "prompt": "Which package is commonly used for API authentication in Laravel?\\nA) Laravel Jetstream\\nB) Laravel Passport\\nC) Laravel Mix\\nD) Laravel Echo",
+    "prompt": "Which package is commonly used for API authentication in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Laravel Jetstream"
+      },
+      {
+        "id": "B",
         "text": "Laravel Passport"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "Laravel Mix"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Laravel Echo"
       }
     ],
     "correctAnswer": "Laravel Passport",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 373,
-    "prompt": "How can you define a global scope in an Eloquent model?\\nA) By creating a method prefixed with scope in the model\\nB) By using the scope method in the model\\nC) By using the globalScope keyword in the model\\nD) By implementing the Scope interface and applying it in the model's boot method",
+    "prompt": "How can you define a global scope in an Eloquent model?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "By implementing the Scope interface and applying it in the model's boot method"
+        "text": "By creating a method prefixed with scope in the model"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "By using the scope method in the model"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "By using the globalScope keyword in the model"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "By implementing the Scope interface and applying it in the model's boot method"
       }
     ],
     "correctAnswer": "By implementing the Scope interface and applying it in the model's boot method",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 374,
-    "prompt": "What will the following code snippet do?\\n$user = User::find(1);\\n$user->roles()->attach([1, 2, 3]);\\nA) It will add roles 1, 2, and 3 to the user without removing existing roles.\\nB) It will remove roles 1, 2, and 3 from the user.\\nC) It will update the user's roles to 1, 2, and 3.\\nD) It will do nothing.",
-    "code": null,
+    "prompt": "What will the following code snippet do?",
+    "code": "$user = User::find(1);\n$user->roles()->attach([1, 2, 3]);",
     "options": [
       {
         "id": "A",
@@ -9219,15 +9219,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "It will remove roles 1, 2, and 3 from the user."
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "It will update the user's roles to 1, 2, and 3."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It will do nothing."
       }
     ],
     "correctAnswer": "It will add roles 1, 2, and 3 to the user without removing existing roles.",
@@ -9235,32 +9235,132 @@
   },
   {
     "id": 375,
-    "prompt": "What is the primary use of the Artisan console in Laravel?\\nA) To handle user authentication\\nB) To manage database connections\\nC) To perform command-line tasks like migrations and creating files\\nD) To manage CSS and JavaScript files",
+    "prompt": "What is the primary use of the Artisan console in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "To perform command-line tasks like migrations and creating files"
+        "text": "To handle user authentication"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To manage database connections"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To perform command-line tasks like migrations and creating files"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To manage CSS and JavaScript files"
       }
     ],
     "correctAnswer": "To perform command-line tasks like migrations and creating files",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 376,
-    "prompt": "How can you create a new API resource class in Laravel?\\nA) make:apiResource\\nB) make:controller --api\\nC) make:api\\nD) make:resource",
+    "prompt": "How can you create a new API resource class in Laravel?",
+    "code": null,
+    "options": [
+      {
+        "id": "A",
+        "text": "make:apiResource"
+      },
+      {
+        "id": "B",
+        "text": "make:controller --api"
+      },
+      {
+        "id": "C",
+        "text": "make:api"
+      },
+      {
+        "id": "D",
+        "text": "make:resource"
+      }
+    ],
+    "correctAnswer": "make:resource",
+    "correctIndex": 3
+  },
+  {
+    "id": 377,
+    "prompt": "What is the purpose of the nullable rule in Laravel validation?",
+    "code": null,
+    "options": [
+      {
+        "id": "A",
+        "text": "To ensure a field is not empty"
+      },
+      {
+        "id": "B",
+        "text": "To allow a field to be null"
+      },
+      {
+        "id": "C",
+        "text": "To validate a field as a string"
+      },
+      {
+        "id": "D",
+        "text": "To make a field required"
+      }
+    ],
+    "correctAnswer": "To allow a field to be null",
+    "correctIndex": 1
+  },
+  {
+    "id": 378,
+    "prompt": "What is the role of UserResourceCollection in this API response?",
+    "code": "return response()->json(['data' => (new UserResourceCollection(User::all())), 'meta' => ['count' => User::count()]]);",
+    "options": [
+      {
+        "id": "A",
+        "text": "It filters out null values from the user data."
+      },
+      {
+        "id": "B",
+        "text": "It handles the pagination of the user list."
+      },
+      {
+        "id": "C",
+        "text": "It caches the user data for subsequent requests"
+      },
+      {
+        "id": "D",
+        "text": "It transforms the entire user collection into a standardized JSON structure."
+      }
+    ],
+    "correctAnswer": "It transforms the entire user collection into a standardized JSON structure.",
+    "correctIndex": 3
+  },
+  {
+    "id": 379,
+    "prompt": "What is the purpose of the __invoke method in a controller?",
+    "code": null,
+    "options": [
+      {
+        "id": "A",
+        "text": "To handle multiple actions"
+      },
+      {
+        "id": "B",
+        "text": "To manage middleware"
+      },
+      {
+        "id": "C",
+        "text": "To make the controller callable as a single action"
+      },
+      {
+        "id": "D",
+        "text": "To define routes"
+      }
+    ],
+    "correctAnswer": "To make the controller callable as a single action",
+    "correctIndex": 2
+  },
+  {
+    "id": 380,
+    "prompt": "Which Artisan command is used to create a resource controller in Laravel?",
     "code": null,
     "options": [
       {
@@ -9269,223 +9369,123 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "make:api"
       },
       {
         "id": "C",
-        "text": "All of the above"
-      },
-      {
-        "id": "D",
-        "text": "Not applicable"
-      }
-    ],
-    "correctAnswer": "make:resource",
-    "correctIndex": 0
-  },
-  {
-    "id": 377,
-    "prompt": "What is the purpose of the nullable rule in Laravel validation?\\nA) To ensure a field is not empty\\nB) To allow a field to be null\\nC) To validate a field as a string\\nD) To make a field required",
-    "code": null,
-    "options": [
-      {
-        "id": "A",
-        "text": "To allow a field to be null"
-      },
-      {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
-        "id": "D",
-        "text": "Not applicable"
-      }
-    ],
-    "correctAnswer": "To allow a field to be null",
-    "correctIndex": 0
-  },
-  {
-    "id": 378,
-    "prompt": "What is the role of UserResourceCollection in this API response?\\nreturn response()->json(['data' => (new UserResourceCollection(User::all())), 'meta' => ['count' => User::count()]]);\\nA) It filters out null values from the user data.\\nB) It handles the pagination of the user list.\\nC) It caches the user data for subsequent requests\\nD) It transforms the entire user collection into a standardized JSON structure.",
-    "code": null,
-    "options": [
-      {
-        "id": "A",
-        "text": "It transforms the entire user collection into a standardized JSON structure."
-      },
-      {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
-        "id": "D",
-        "text": "Not applicable"
-      }
-    ],
-    "correctAnswer": "It transforms the entire user collection into a standardized JSON structure.",
-    "correctIndex": 0
-  },
-  {
-    "id": 379,
-    "prompt": "What is the purpose of the __invoke method in a controller?\\nA) To handle multiple actions\\nB) To manage middleware\\nC) To make the controller callable as a single action\\nD) To define routes",
-    "code": null,
-    "options": [
-      {
-        "id": "A",
-        "text": "To make the controller callable as a single action"
-      },
-      {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
-        "id": "D",
-        "text": "Not applicable"
-      }
-    ],
-    "correctAnswer": "To make the controller callable as a single action",
-    "correctIndex": 0
-  },
-  {
-    "id": 380,
-    "prompt": "Which Artisan command is used to create a resource controller in Laravel?\\nA) make:resource\\nB) make:api\\nC) make:controller --resource\\nD) make:rest",
-    "code": null,
-    "options": [
-      {
-        "id": "A",
         "text": "make:controller --resource"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "make:rest"
       }
     ],
     "correctAnswer": "make:controller --resource",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 381,
-    "prompt": "What is the purpose of Laravel's middleware?\\nA) To compile Blade templates\\nB) To manage user sessions\\nC) To handle database migrations\\nD) To filter HTTP requests entering your application",
+    "prompt": "What is the purpose of Laravel's middleware?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "To filter HTTP requests entering your application"
+        "text": "To compile Blade templates"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To manage user sessions"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To handle database migrations"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To filter HTTP requests entering your application"
       }
     ],
     "correctAnswer": "To filter HTTP requests entering your application",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 382,
-    "prompt": "How do you run tests in a Laravel application?\\nA) php artisan execute:tests\\nB) php artisan test:run\\nC) php artisan test\\nD) php artisan run:tests",
+    "prompt": "How do you run tests in a Laravel application?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "php artisan execute:tests"
+      },
+      {
+        "id": "B",
+        "text": "php artisan test:run"
+      },
+      {
+        "id": "C",
         "text": "php artisan test"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "php artisan run:tests"
       }
     ],
     "correctAnswer": "php artisan test",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 383,
-    "prompt": "How can you test a Laravel job that dispatches another job upon completion?\\nA) Use Queue::assertPushed() to check that the subsequent job was queued\\nB) Use Bus::fake() to capture and assert job dispatches\\nC) Call the job's dispatch method directly in the test\\nD) Use Event::fake() to intercept the job dispatching",
+    "prompt": "How can you test a Laravel job that dispatches another job upon completion?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Use Queue::assertPushed() to check that the subsequent job was queued"
+      },
+      {
+        "id": "B",
         "text": "Use Bus::fake() to capture and assert job dispatches"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "Call the job's dispatch method directly in the test"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Use Event::fake() to intercept the job dispatching"
       }
     ],
     "correctAnswer": "Use Bus::fake() to capture and assert job dispatches",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 384,
-    "prompt": "Which method would you use to update an existing record in Eloquent?\\nA) save()\\nB) update()\\nC) insert()\\nD) create()",
+    "prompt": "Which method would you use to update an existing record in Eloquent?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "update()"
+        "text": "save()"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "update()"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "insert()"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "create()"
       }
     ],
     "correctAnswer": "update()",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 385,
-    "prompt": "Which of the following is true about Laravel's policy classes?\\nA) They are used to organize authorization logic around a particular model\\nB) They are used to render Blade templates\\nC) They are used to manage database migrations\\nD) They are used to handle HTTP requests",
+    "prompt": "Which of the following is true about Laravel's policy classes?",
     "code": null,
     "options": [
       {
@@ -9494,15 +9494,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "They are used to render Blade templates"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "They are used to manage database migrations"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "They are used to handle HTTP requests"
       }
     ],
     "correctAnswer": "They are used to organize authorization logic around a particular model",
@@ -9510,32 +9510,32 @@
   },
   {
     "id": 386,
-    "prompt": "What is the role of the Inertia::render method in the following Laravel controller action?\\nA) It returns a JSON response with user data.\\nB) It returns a Blade view named 'Dashboard'.\\nC) It returns an Inertia page component named 'Dashboard' with props.\\nD) It returns a Vue.js component directly.",
+    "prompt": "What is the role of the Inertia::render method in the following Laravel controller action?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "It returns an Inertia page component named 'Dashboard' with props."
+        "text": "It returns a JSON response with user data."
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "It returns a Blade view named 'Dashboard'."
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "It returns an Inertia page component named 'Dashboard' with props."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It returns a Vue.js component directly."
       }
     ],
     "correctAnswer": "It returns an Inertia page component named 'Dashboard' with props.",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 387,
-    "prompt": "Which of the following is the correct syntax to select all users from the reports database?\\n[config/database.php snippet - OPTIONS INCOMPLETE]\\nA) DB::connection('reports')->table('users')->get();\\nB) User::all('reports');\\nC) DB::reports()->users()->get();\\nD) User::on('reports')->get();",
+    "prompt": "Which of the following is the correct syntax to select all users from the reports database?",
     "code": null,
     "options": [
       {
@@ -9544,15 +9544,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "User::all('reports');"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "DB::reports()->users()->get();"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "User::on('reports')->get();"
       }
     ],
     "correctAnswer": "DB::connection('reports')->table('users')->get();",
@@ -9560,57 +9560,57 @@
   },
   {
     "id": 388,
-    "prompt": "Which of the following is a method to retrieve the first record from a database table using Eloquent?\\nA) retrieveFirst()\\nB) fetchFirst()\\nC) first()\\nD) getFirst()",
+    "prompt": "Which of the following is a method to retrieve the first record from a database table using Eloquent?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "retrieveFirst()"
+      },
+      {
+        "id": "B",
+        "text": "fetchFirst()"
+      },
+      {
+        "id": "C",
         "text": "first()"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "getFirst()"
       }
     ],
     "correctAnswer": "first()",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 389,
-    "prompt": "How can you define custom validation messages in Laravel?\\nA) By editing the .env file\\nB) By passing an array of custom messages as the third parameter to the validate() method\\nC) By creating a new middleware\\nD) By using the setMessage() method",
+    "prompt": "How can you define custom validation messages in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "By passing an array of custom messages as the third parameter to the validate() method"
+        "text": "By editing the .env file"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "By passing an array of custom messages as the third parameter to the validate() method"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "By creating a new middleware"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "By using the setMessage() method"
       }
     ],
     "correctAnswer": "By passing an array of custom messages as the third parameter to the validate() method",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 390,
-    "prompt": "How can you prevent a listener from being executed in certain environments?\\nA) By checking the environment in the listener's handle method\\nB) By setting a flag in the .env file\\nC) By using the disable() method\\nD) By using the prevent() method",
+    "prompt": "How can you prevent a listener from being executed in certain environments?",
     "code": null,
     "options": [
       {
@@ -9619,15 +9619,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "By setting a flag in the .env file"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "By using the disable() method"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "By using the prevent() method"
       }
     ],
     "correctAnswer": "By checking the environment in the listener's handle method",
@@ -9635,33 +9635,33 @@
   },
   {
     "id": 391,
-    "prompt": "How do you define a route with a prefix in Laravel?\\nA) Route::group('admin')->prefix(function() { ... });\\nB) Route::prefix('admin')->group(function() { ... });\\nC) Route::group(['prefix' => 'admin'], function() { ... });\\nD) Route::prefix->group(function() { ... });",
+    "prompt": "How do you define a route with a prefix in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "Route::group(['prefix' => 'admin'], function() { ... });"
+        "text": "Route::group('admin')->prefix(function() { ... });"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Route::prefix('admin')->group(function() { ... });"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Route::group(['prefix' => 'admin'], function() { ... });"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Route::prefix->group(function() { ... });"
       }
     ],
     "correctAnswer": "Route::group(['prefix' => 'admin'], function() { ... });",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 392,
-    "prompt": "Given the following routes, when you visit \"http://localhost/user\" what is the output?\\nRoute::get('user/{id?}', function ($id = null) { return 'User #' .$id; });\\nRoute::get('user', function () { return 'Default User'; });\\nA) User #\\nB) Default User\\nC) InvalidArgumentException\\nD) User #0",
-    "code": null,
+    "prompt": "Given the following routes, when you visit \"http://localhost/user\" what is the output?",
+    "code": "Given the following routes, when you visit \"http://localhost/user\" what is the output?\nRoute::get('user/{id?}', function ($id = null) { return 'User #' .$id; });\nRoute::get('user', function () { return 'Default User'; });",
     "options": [
       {
         "id": "A",
@@ -9669,15 +9669,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Default User"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "InvalidArgumentException"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "User #0"
       }
     ],
     "correctAnswer": "User #",
@@ -9685,207 +9685,207 @@
   },
   {
     "id": 393,
-    "prompt": "How do you configure Redis as a cache driver in Laravel?\\nA) Use a Redis facade\\nB) Install a Redis package\\nC) Modify the .env file to set CACHE_DRIVER=redis\\nD) Modify the config/cache.php file",
+    "prompt": "How do you configure Redis as a cache driver in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Use a Redis facade"
+      },
+      {
+        "id": "B",
+        "text": "Install a Redis package"
+      },
+      {
+        "id": "C",
         "text": "Modify the .env file to set CACHE_DRIVER=redis"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Modify the config/cache.php file"
       }
     ],
     "correctAnswer": "Modify the .env file to set CACHE_DRIVER=redis",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 394,
-    "prompt": "How can you retrieve a record by its primary key using Eloquent?\\nA) all()\\nB) get()\\nC) find()\\nD) first()",
+    "prompt": "How can you retrieve a record by its primary key using Eloquent?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "all()"
+      },
+      {
+        "id": "B",
+        "text": "get()"
+      },
+      {
+        "id": "C",
         "text": "find()"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "first()"
       }
     ],
     "correctAnswer": "find()",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 395,
-    "prompt": "What is the purpose of the artisan command in the following code?\\nphp artisan migrate\\nA) To create a new migration file.\\nB) To seed the database.\\nC) To rollback the last migration.\\nD) To run the database migrations.",
-    "code": null,
+    "prompt": "What is the purpose of the artisan command in the following code?",
+    "code": "php artisan migrate",
     "options": [
       {
         "id": "A",
-        "text": "To run the database migrations."
+        "text": "To create a new migration file."
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To seed the database."
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To rollback the last migration."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To run the database migrations."
       }
     ],
     "correctAnswer": "To run the database migrations.",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 396,
-    "prompt": "What is the purpose of the hidden property in an Eloquent model?\\nA) To define the model's relationships\\nB) To define the model's table name\\nC) To specify which attributes should be hidden from JSON serialization\\nD) To set the model's primary key",
+    "prompt": "What is the purpose of the hidden property in an Eloquent model?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "To define the model's relationships"
+      },
+      {
+        "id": "B",
+        "text": "To define the model's table name"
+      },
+      {
+        "id": "C",
         "text": "To specify which attributes should be hidden from JSON serialization"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To set the model's primary key"
       }
     ],
     "correctAnswer": "To specify which attributes should be hidden from JSON serialization",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 397,
-    "prompt": "Which method is used to assert that a listener was attached to an event in a Laravel test?\\nA) assertListenerAttached()\\nB) Event::checkListening()\\nC) assertAttachedListener()\\nD) Event::assertListening()",
+    "prompt": "Which method is used to assert that a listener was attached to an event in a Laravel test?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "Event::assertListening()"
+        "text": "assertListenerAttached()"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Event::checkListening()"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "assertAttachedListener()"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Event::assertListening()"
       }
     ],
     "correctAnswer": "Event::assertListening()",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 398,
-    "prompt": "What is the role of middleware in the following Laravel application code?\\npublic function handle($request, Closure $next)\\n{\\n    if ($request->age < 18) {\\n        return redirect('home');\\n    }\\n    return $next($request);\\n}\\n[OPTIONS PARTIALLY CROPPED]\\nA) To define routes\\nB) To manage Eloquent relationships\\nC) To filter HTTP requests entering the application\\nD) To compile Blade templates",
-    "code": null,
+    "prompt": "What is the role of middleware in the following Laravel application code?",
+    "code": "public function handle($request, Closure $next)\n{\n    if ($request->age < 18) {\n        return redirect('home');\n    }\n    return $next($request);\n}\n[OPTIONS PARTIALLY CROPPED]",
     "options": [
       {
         "id": "A",
+        "text": "To define routes"
+      },
+      {
+        "id": "B",
+        "text": "To manage Eloquent relationships"
+      },
+      {
+        "id": "C",
         "text": "To filter HTTP requests entering the application"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To compile Blade templates"
       }
     ],
     "correctAnswer": "To filter HTTP requests entering the application",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 399,
-    "prompt": "Where do you configure cloud storage settings in Laravel?\\nA) config/services.php\\nB) config/app.php\\nC) config/database.php\\nD) config/filesystems.php",
+    "prompt": "Where do you configure cloud storage settings in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "config/filesystems.php"
+        "text": "config/services.php"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "config/app.php"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "config/database.php"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "config/filesystems.php"
       }
     ],
     "correctAnswer": "config/filesystems.php",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 400,
-    "prompt": "What is the correct way to define a named route in Laravel?\\nA) Neither A nor B\\nB) Route::name('home')->get('/home', 'HomeController@index');\\nC) Both A and B\\nD) Route::get('/home', 'HomeController@index')->name('home');",
+    "prompt": "What is the correct way to define a named route in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "Both A and B"
+        "text": "Neither A nor B"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Route::name('home')->get('/home', 'HomeController@index');"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Both A and B"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Route::get('/home', 'HomeController@index')->name('home');"
       }
     ],
     "correctAnswer": "Both A and B",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 401,
-    "prompt": "How do you acquire a cache lock in Laravel?\\nA) Cache::lock('lock-name', 10)->get();\\nB) Cache::mutex('lock-name', 10)->get();\\nC) Cache::hold('lock-name', 10)->get();\\nD) Cache::secure('lock-name', 10)->get();",
+    "prompt": "How do you acquire a cache lock in Laravel?",
     "code": null,
     "options": [
       {
@@ -9894,15 +9894,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Cache::mutex('lock-name', 10)->get();"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Cache::hold('lock-name', 10)->get();"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Cache::secure('lock-name', 10)->get();"
       }
     ],
     "correctAnswer": "Cache::lock('lock-name', 10)->get();",
@@ -9910,132 +9910,132 @@
   },
   {
     "id": 402,
-    "prompt": "What is the Artisan command to create a new unit test in Laravel?\\nA) php artisan create:test UserTest --unit\\nB) php artisan new:test UserTest --unit\\nC) php artisan make:test UserTest --unit\\nD) php artisan generate:test UserTest --unit",
+    "prompt": "What is the Artisan command to create a new unit test in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "php artisan create:test UserTest --unit"
+      },
+      {
+        "id": "B",
+        "text": "php artisan new:test UserTest --unit"
+      },
+      {
+        "id": "C",
         "text": "php artisan make:test UserTest --unit"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "php artisan generate:test UserTest --unit"
       }
     ],
     "correctAnswer": "php artisan make:test UserTest --unit",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 403,
-    "prompt": "Which of the following is a valid way to access the current authenticated user in Laravel?\\nA) Auth::currentuser()\\nB) auth()->user()\\nC) currentUser()\\nD) User::auth()",
+    "prompt": "Which of the following is a valid way to access the current authenticated user in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Auth::currentuser()"
+      },
+      {
+        "id": "B",
         "text": "auth()->user()"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "currentUser()"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "User::auth()"
       }
     ],
     "correctAnswer": "auth()->user()",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 404,
-    "prompt": "What is the primary purpose of Eloquent ORM in Laravel?\\nA) To manage user authentication\\nB) To render Blade templates\\nC) To handle HTTP requests\\nD) To provide an active record implementation for database interactions",
+    "prompt": "What is the primary purpose of Eloquent ORM in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "To provide an active record implementation for database interactions"
+        "text": "To manage user authentication"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To render Blade templates"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To handle HTTP requests"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To provide an active record implementation for database interactions"
       }
     ],
     "correctAnswer": "To provide an active record implementation for database interactions",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 405,
-    "prompt": "How can you dynamically change the locale of a Laravel application during a request?\\nA) Call App::setLocale() directly\\nB) Use a middleware that calls App::setLocale() based on the request\\nC) Set the locale in the .env file\\nD) Modify the config/app.php file",
+    "prompt": "How can you dynamically change the locale of a Laravel application during a request?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Call App::setLocale() directly"
+      },
+      {
+        "id": "B",
         "text": "Use a middleware that calls App::setLocale() based on the request"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "Set the locale in the .env file"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Modify the config/app.php file"
       }
     ],
     "correctAnswer": "Use a middleware that calls App::setLocale() based on the request",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 406,
-    "prompt": "Which of the following is true about route model binding in Laravel?\\nA) It only works with Eloquent models\\nB) It is deprecated in Laravel 11\\nC) It automatically injects model instances into routes based on route parameters\\nD) It requires explicit registration in the RouteServiceProvider",
+    "prompt": "Which of the following is true about route model binding in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "It automatically injects model instances into routes based on route parameters"
+        "text": "It only works with Eloquent models"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "It is deprecated in Laravel 11"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "It automatically injects model instances into routes based on route parameters"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It requires explicit registration in the RouteServiceProvider"
       }
     ],
     "correctAnswer": "It automatically injects model instances into routes based on route parameters",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 407,
-    "prompt": "How can you test a Laravel package during development?\\nA) By using PHPUnit or another testing framework\\nB) By using the composer test command\\nC) By using the npm test command\\nD) By using the php artisan test command",
+    "prompt": "How can you test a Laravel package during development?",
     "code": null,
     "options": [
       {
@@ -10044,15 +10044,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "By using the composer test command"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "By using the npm test command"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "By using the php artisan test command"
       }
     ],
     "correctAnswer": "By using PHPUnit or another testing framework",
@@ -10060,32 +10060,32 @@
   },
   {
     "id": 408,
-    "prompt": "How can you return a JSON response in a Laravel controller?\\nA) Using the render() method\\nB) Using the redirect() function\\nC) Using the view() function\\nD) Using the response()->json() method",
+    "prompt": "How can you return a JSON response in a Laravel controller?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "Using the response()->json() method"
+        "text": "Using the render() method"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Using the redirect() function"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Using the view() function"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Using the response()->json() method"
       }
     ],
     "correctAnswer": "Using the response()->json() method",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 409,
-    "prompt": "How do you use the actingAs helper in a test?\\nA) $this->actingAs($user)->get('/dashboard');\\nB) $this->authenticate($user)->get('/dashboard');\\nC) $this->loginAs($user)->get('/dashboard');\\nD) $this->signIn($user)->get('/dashboard');",
+    "prompt": "How do you use the actingAs helper in a test?",
     "code": null,
     "options": [
       {
@@ -10094,15 +10094,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "$this->authenticate($user)->get('/dashboard');"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "$this->loginAs($user)->get('/dashboard');"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "$this->signIn($user)->get('/dashboard');"
       }
     ],
     "correctAnswer": "$this->actingAs($user)->get('/dashboard');",
@@ -10110,32 +10110,32 @@
   },
   {
     "id": 410,
-    "prompt": "How can you test that an event was dispatched in a Laravel test?\\nA) assertEventDispatched()\\nB) assertDispatchedEvent()\\nC) Event::checkDispatched()\\nD) Event::assertDispatched()",
+    "prompt": "How can you test that an event was dispatched in a Laravel test?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "Event::assertDispatched()"
+        "text": "assertEventDispatched()"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "assertDispatchedEvent()"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Event::checkDispatched()"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Event::assertDispatched()"
       }
     ],
     "correctAnswer": "Event::assertDispatched()",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 411,
-    "prompt": "How can you validate that a field is a valid date in Laravel?\\nA) date\\nB) string\\nC) text\\nD) integer",
+    "prompt": "How can you validate that a field is a valid date in Laravel?",
     "code": null,
     "options": [
       {
@@ -10144,15 +10144,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "string"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "text"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "integer"
       }
     ],
     "correctAnswer": "date",
@@ -10160,32 +10160,32 @@
   },
   {
     "id": 412,
-    "prompt": "What is the purpose of the down method in the following migration class?\\npublic function down() { Schema::dropIfExists('users'); }\\nA) To update the database schema\\nB) To seed the database\\nC) To reverse the migration\\nD) To apply the migration",
-    "code": null,
+    "prompt": "What is the purpose of the down method in the following migration class?",
+    "code": "public function down() { Schema::dropIfExists('users'); }",
     "options": [
       {
         "id": "A",
-        "text": "To reverse the migration"
+        "text": "To update the database schema"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To seed the database"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To reverse the migration"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To apply the migration"
       }
     ],
     "correctAnswer": "To reverse the migration",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 413,
-    "prompt": "How can you protect API routes with token-based authentication in Laravel?\\nA) By using the auth:sanctum middleware\\nB) By using the auth middleware\\nC) By using the guest middleware\\nD) By setting a flag in the .env file",
+    "prompt": "How can you protect API routes with token-based authentication in Laravel?",
     "code": null,
     "options": [
       {
@@ -10194,15 +10194,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "By using the auth middleware"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "By using the guest middleware"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "By setting a flag in the .env file"
       }
     ],
     "correctAnswer": "By using the auth:sanctum middleware",
@@ -10210,57 +10210,57 @@
   },
   {
     "id": 414,
-    "prompt": "How can you create a macro for a collection that performs a complex operation on its items?\\nA) Use a middleware\\nB) Use the Collection::macro method\\nC) Use a service provider\\nD) Use a helper function",
+    "prompt": "How can you create a macro for a collection that performs a complex operation on its items?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Use a middleware"
+      },
+      {
+        "id": "B",
         "text": "Use the Collection::macro method"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "Use a service provider"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Use a helper function"
       }
     ],
     "correctAnswer": "Use the Collection::macro method",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 415,
-    "prompt": "Which tool is commonly used to manage packages in Laravel?\\nA) Yarn\\nB) Composer\\nC) Pip\\nD) NPM",
+    "prompt": "Which tool is commonly used to manage packages in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "Composer"
+        "text": "Yarn"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Composer"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Pip"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "NPM"
       }
     ],
     "correctAnswer": "Composer",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 416,
-    "prompt": "What is the purpose of Laravel's Event system?\\nA) To listen for and respond to events in your application\\nB) To compile JavaScript files\\nC) To handle database queries\\nD) To manage user sessions",
+    "prompt": "What is the purpose of Laravel's Event system?",
     "code": null,
     "options": [
       {
@@ -10269,15 +10269,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To compile JavaScript files"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To handle database queries"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To manage user sessions"
       }
     ],
     "correctAnswer": "To listen for and respond to events in your application",
@@ -10285,132 +10285,132 @@
   },
   {
     "id": 417,
-    "prompt": "What will the following code snippet do?\\nRoute::middleware(['auth', 'verified'])->group(function () {\\n    Route::get('/dashboard', 'DashboardController@index');\\n    Route::get('/settings', 'SettingsController@index');\\n});\\nA) It will not apply any middleware to the routes.\\nB) It will apply the 'verified' middleware to the '/settings' route only.\\nC) It will apply both 'auth' and 'verified' middleware to both routes.\\nD) It will apply the 'auth' middleware to the '/dashboard' route only.",
-    "code": null,
+    "prompt": "What will the following code snippet do?",
+    "code": "Route::middleware(['auth', 'verified'])->group(function () {\n    Route::get('/dashboard', 'DashboardController@index');\n    Route::get('/settings', 'SettingsController@index');\n});",
     "options": [
       {
         "id": "A",
+        "text": "It will not apply any middleware to the routes."
+      },
+      {
+        "id": "B",
+        "text": "It will apply the 'verified' middleware to the '/settings' route only."
+      },
+      {
+        "id": "C",
         "text": "It will apply both 'auth' and 'verified' middleware to both routes."
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It will apply the 'auth' middleware to the '/dashboard' route only."
       }
     ],
     "correctAnswer": "It will apply both 'auth' and 'verified' middleware to both routes.",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 418,
-    "prompt": "What is the default database system used by Laravel?\\nA) MongoDB\\nB) MySQL\\nC) Oracle\\nD) SQL Server",
+    "prompt": "What is the default database system used by Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "MongoDB"
+      },
+      {
+        "id": "B",
         "text": "MySQL"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "Oracle"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "SQL Server"
       }
     ],
     "correctAnswer": "MySQL",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 419,
-    "prompt": "What is the purpose of the assertStatus method in a Laravel test?\\nA) To check if a view is returned\\nB) To assert that the response has a specific HTTP status code\\nC) To check if a session variable is set\\nD) To verify database entries",
+    "prompt": "What is the purpose of the assertStatus method in a Laravel test?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "To check if a view is returned"
+      },
+      {
+        "id": "B",
         "text": "To assert that the response has a specific HTTP status code"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "To check if a session variable is set"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To verify database entries"
       }
     ],
     "correctAnswer": "To assert that the response has a specific HTTP status code",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 420,
-    "prompt": "What is the role of a queue worker in Laravel?\\nA) To manage database connections\\nB) To handle user authentication\\nC) To manage file uploads\\nD) To process jobs in the queue",
+    "prompt": "What is the role of a queue worker in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "To process jobs in the queue"
+        "text": "To manage database connections"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To handle user authentication"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To manage file uploads"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To process jobs in the queue"
       }
     ],
     "correctAnswer": "To process jobs in the queue",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 421,
-    "prompt": "What is the purpose of the assertTrue method in Laravel testing?\\nA) To check if a value is false\\nB) To assert that a condition is false\\nC) To check if a value is null\\nD) To assert that a condition is true",
+    "prompt": "What is the purpose of the assertTrue method in Laravel testing?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "To assert that a condition is true"
+        "text": "To check if a value is false"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To assert that a condition is false"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To check if a value is null"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To assert that a condition is true"
       }
     ],
     "correctAnswer": "To assert that a condition is true",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 422,
-    "prompt": "What is the purpose of the bail rule in Laravel validation?\\nA) To stop running validation rules on an attribute after the first validation failure\\nB) To log validation errors\\nC) To skip validation for a field\\nD) To handle exceptions",
+    "prompt": "What is the purpose of the bail rule in Laravel validation?",
     "code": null,
     "options": [
       {
@@ -10419,15 +10419,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To log validation errors"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To skip validation for a field"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To handle exceptions"
       }
     ],
     "correctAnswer": "To stop running validation rules on an attribute after the first validation failure",
@@ -10435,32 +10435,32 @@
   },
   {
     "id": 423,
-    "prompt": "How do you store a file in an S3 bucket in Laravel?\\nA) Storage::store('s3')->put('file.jpg', $content);\\nB) Storage::bucket('s3')->put('file.jpg', $content);\\nC) Storage::cloud('s3')->put('file.jpg', $content);\\nD) Storage::disk('s3')->put('file.jpg', $content);",
+    "prompt": "How do you store a file in an S3 bucket in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "Storage::disk('s3')->put('file.jpg', $content);"
+        "text": "Storage::store('s3')->put('file.jpg', $content);"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Storage::bucket('s3')->put('file.jpg', $content);"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Storage::cloud('s3')->put('file.jpg', $content);"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Storage::disk('s3')->put('file.jpg', $content);"
       }
     ],
     "correctAnswer": "Storage::disk('s3')->put('file.jpg', $content);",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 424,
-    "prompt": "What should you do to ensure sensitive information in the .env file is not exposed?\\nA) Exclude the .env file from version control.\\nB) Share the .env file with all team members.\\nC) Commit the .env file to version control.\\nD) Store the .env file in the public directory.",
+    "prompt": "What should you do to ensure sensitive information in the .env file is not exposed?",
     "code": null,
     "options": [
       {
@@ -10469,15 +10469,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Share the .env file with all team members."
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Commit the .env file to version control."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Store the .env file in the public directory."
       }
     ],
     "correctAnswer": "Exclude the .env file from version control.",
@@ -10485,8 +10485,8 @@
   },
   {
     "id": 425,
-    "prompt": "Where do you configure a custom guard in Laravel 11?\\n'guards' => ['custom' => ['driver' => 'custom']]\\nA) config/auth.php\\nB) config/app.php\\nC) config/middleware.php\\nD) config/database.php",
-    "code": null,
+    "prompt": "Where do you configure a custom guard in Laravel 11?",
+    "code": "'guards' => ['custom' => ['driver' => 'custom']]",
     "options": [
       {
         "id": "A",
@@ -10494,15 +10494,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "config/app.php"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "config/middleware.php"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "config/database.php"
       }
     ],
     "correctAnswer": "config/auth.php",
@@ -10510,7 +10510,7 @@
   },
   {
     "id": 426,
-    "prompt": "Which method is used to retrieve all validation errors in a Laravel controller?\\nA) errors()\\nB) validationErrors()\\nC) getErrors()\\nD) allErrors()",
+    "prompt": "Which method is used to retrieve all validation errors in a Laravel controller?",
     "code": null,
     "options": [
       {
@@ -10519,15 +10519,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "validationErrors()"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "getErrors()"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "allErrors()"
       }
     ],
     "correctAnswer": "errors()",
@@ -10535,7 +10535,7 @@
   },
   {
     "id": 427,
-    "prompt": "What is the purpose of Laravel's Notification facade?\\nA) To send notifications via different channels\\nB) To handle database queries\\nC) To compile JavaScript files\\nD) To manage user sessions",
+    "prompt": "What is the purpose of Laravel's Notification facade?",
     "code": null,
     "options": [
       {
@@ -10544,15 +10544,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To handle database queries"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To compile JavaScript files"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To manage user sessions"
       }
     ],
     "correctAnswer": "To send notifications via different channels",
@@ -10560,482 +10560,478 @@
   },
   {
     "id": 428,
-    "prompt": "What is a common use case for middleware in Laravel?\\nA) To handle file uploads\\nB) To manage user sessions\\nC) To check if a user is authenticated before accessing a route\\nD) To manage database migrations",
+    "prompt": "What is a common use case for middleware in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "To handle file uploads"
+      },
+      {
+        "id": "B",
+        "text": "To manage user sessions"
+      },
+      {
+        "id": "C",
         "text": "To check if a user is authenticated before accessing a route"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To manage database migrations"
       }
     ],
     "correctAnswer": "To check if a user is authenticated before accessing a route",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 429,
-    "prompt": "Which of the following is a valid way to access a configuration value in Laravel?\\nA) appConfig('name')\\nB) Config::clear('app.name')\\nC) config('app.name')\\nD) getConfig('app.name')",
+    "prompt": "Which of the following is a valid way to access a configuration value in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "appConfig('name')"
+      },
+      {
+        "id": "B",
+        "text": "Config::clear('app.name')"
+      },
+      {
+        "id": "C",
         "text": "config('app.name')"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "getConfig('app.name')"
       }
     ],
     "correctAnswer": "config('app.name')",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 430,
-    "prompt": "What is the purpose of API rate limiting in Laravel, as demonstrated in the following middleware code?\\nif ($request->user()->rateLimitExceeded()) { return response('Rate limit exceeded', 429); }\\nA) To enhance database performance\\nB) To prevent abuse by limiting the number of requests a user can make\\nC) To manage user authentication",
-    "code": null,
+    "prompt": "What is the purpose of API rate limiting in Laravel, as demonstrated in the following middleware code?",
+    "code": "if ($request->user()->rateLimitExceeded()) { return response('Rate limit exceeded', 429); }",
     "options": [
       {
         "id": "A",
+        "text": "To enhance database performance"
+      },
+      {
+        "id": "B",
         "text": "To prevent abuse by limiting the number of requests a user can make"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
-      },
-      {
-        "id": "D",
-        "text": "Not applicable"
+        "text": "To manage user authentication"
       }
     ],
     "correctAnswer": "To prevent abuse by limiting the number of requests a user can make",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 431,
-    "prompt": "What is the purpose of the withoutOverlapping method in Laravel's task scheduling?\\nA) It schedules a task to run only once\\nB) It ensures a task runs at exactly the same time every day\\nC) It allows multiple instances of a task to run simultaneously\\nD) It prevents a task from starting if a previous instance is still running",
+    "prompt": "What is the purpose of the withoutOverlapping method in Laravel's task scheduling?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "It prevents a task from starting if a previous instance is still running"
+        "text": "It schedules a task to run only once"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "It ensures a task runs at exactly the same time every day"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "It allows multiple instances of a task to run simultaneously"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It prevents a task from starting if a previous instance is still running"
       }
     ],
     "correctAnswer": "It prevents a task from starting if a previous instance is still running",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 432,
-    "prompt": "What is the purpose of feature tests in Laravel?\\nA) To test database migrations\\nB) To test Blade templates\\nC) To test individual methods\\nD) To test larger sections of code, including multiple components",
+    "prompt": "What is the purpose of feature tests in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "To test larger sections of code, including multiple components"
+        "text": "To test database migrations"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To test Blade templates"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To test individual methods"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To test larger sections of code, including multiple components"
       }
     ],
     "correctAnswer": "To test larger sections of code, including multiple components",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 433,
-    "prompt": "How can you protect a route so that only authenticated users can access it?\\nA) By setting a flag in the .env file\\nB) By using the guest middleware\\nC) By using the auth middleware\\nD) By applying the auth middleware to the route",
+    "prompt": "How can you protect a route so that only authenticated users can access it?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "By applying the auth middleware to the route"
+        "text": "By setting a flag in the .env file"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "By using the guest middleware"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "By using the auth middleware"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "By applying the auth middleware to the route"
       }
     ],
     "correctAnswer": "By applying the auth middleware to the route",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 434,
-    "prompt": "Is it possible to have a single middleware that is both a before and after middleware?\\nA) Yes, if it's defined in both 'beforeMiddleware' and 'afterMiddleware' configurations.\\nB) Yes, but only if the middleware is global.\\nC) Yes, each middleware can contain both before and after behaviors.\\nD) No, you must make two separate middleware.",
+    "prompt": "Is it possible to have a single middleware that is both a before and after middleware?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Yes, if it's defined in both 'beforeMiddleware' and 'afterMiddleware' configurations."
+      },
+      {
+        "id": "B",
+        "text": "Yes, but only if the middleware is global."
+      },
+      {
+        "id": "C",
         "text": "Yes, each middleware can contain both before and after behaviors."
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "No, you must make two separate middleware."
       }
     ],
     "correctAnswer": "Yes, each middleware can contain both before and after behaviors.",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 435,
-    "prompt": "How do you dispatch a job to run after a delay in Laravel?\\nA) ProcessPodcast::dispatch($podcast)->hold(10);\\nB) ProcessPodcast::dispatch($podcast)->wait(10);\\nC) ProcessPodcast::dispatch($podcast)->pause(10);\\nD) ProcessPodcast::dispatch($podcast)->delay(now()->addMinutes(10));",
+    "prompt": "How do you dispatch a job to run after a delay in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "ProcessPodcast::dispatch($podcast)->delay(now()->addMinutes(10));"
+        "text": "ProcessPodcast::dispatch($podcast)->hold(10);"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "ProcessPodcast::dispatch($podcast)->wait(10);"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "ProcessPodcast::dispatch($podcast)->pause(10);"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "ProcessPodcast::dispatch($podcast)->delay(now()->addMinutes(10));"
       }
     ],
     "correctAnswer": "ProcessPodcast::dispatch($podcast)->delay(now()->addMinutes(10));",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 436,
-    "prompt": "Which of the following best describes what \"composer\" is?\\nA) It's a component for composing objects.\\nB) It's a tool for populating Blade templates.\\nC) It's an interface for injecting services into objects.\\nD) It's a tool for installing and managing third party packages.",
+    "prompt": "Which of the following best describes what \"composer\" is?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "It's a tool for installing and managing third party packages."
+        "text": "It's a component for composing objects."
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "It's a tool for populating Blade templates."
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "It's an interface for injecting services into objects."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It's a tool for installing and managing third party packages."
       }
     ],
     "correctAnswer": "It's a tool for installing and managing third party packages.",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 437,
-    "prompt": "How do you handle an event in a listener?\\nA) public function process(UserRegistered $event) {\\nB) public function handle(UserRegistered $event) {\\nC) public function execute(UserRegistered $event) {\\nD) public function run(UserRegistered $event) {",
+    "prompt": "How do you handle an event in a listener?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "public function process(UserRegistered $event) {"
+      },
+      {
+        "id": "B",
         "text": "public function handle(UserRegistered $event) {"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "public function execute(UserRegistered $event) {"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "public function run(UserRegistered $event) {"
       }
     ],
     "correctAnswer": "public function handle(UserRegistered $event) {",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 438,
-    "prompt": "How can you pass data to a Blade view from a controller?\\nA) Using the send() method\\nB) Using the pass() method\\nC) Using the with() method\\nD) Using the data() method",
+    "prompt": "How can you pass data to a Blade view from a controller?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Using the send() method"
+      },
+      {
+        "id": "B",
+        "text": "Using the pass() method"
+      },
+      {
+        "id": "C",
         "text": "Using the with() method"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Using the data() method"
       }
     ],
     "correctAnswer": "Using the with() method",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 439,
-    "prompt": "What is the purpose of the apiResource method in Laravel routing?\\nA) To handle token-based authentication\\nB) To define a single API route\\nC) To define a set of RESTful API routes for a resource controller\\nD) To create a new API controller",
+    "prompt": "What is the purpose of the apiResource method in Laravel routing?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "To handle token-based authentication"
+      },
+      {
+        "id": "B",
+        "text": "To define a single API route"
+      },
+      {
+        "id": "C",
         "text": "To define a set of RESTful API routes for a resource controller"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To create a new API controller"
       }
     ],
     "correctAnswer": "To define a set of RESTful API routes for a resource controller",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 440,
-    "prompt": "Which Artisan command is used to create a resource controller in Laravel?\\nA) make:resource\\nB) make:api\\nC) make:controller --resource\\nD) make:rest",
+    "prompt": "Which Artisan command is used to create a resource controller in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "make:resource"
+      },
+      {
+        "id": "B",
+        "text": "make:api"
+      },
+      {
+        "id": "C",
         "text": "make:controller --resource"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "make:rest"
       }
     ],
     "correctAnswer": "make:controller --resource",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 441,
-    "prompt": "How do you register a custom middleware in a Laravel 11 application?\\nA) Add to config/app.php\\nB) Add to app/Http/Kernel.php in $middlewareGroups\\nC) Add to app/Http/Kernel.php in $routeMiddleware\\nD) Add to routes/web.php",
+    "prompt": "How do you register a custom middleware in a Laravel 11 application?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Add to config/app.php"
+      },
+      {
+        "id": "B",
         "text": "Add to app/Http/Kernel.php in $middlewareGroups"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "Add to app/Http/Kernel.php in $routeMiddleware"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Add to routes/web.php"
       }
     ],
     "correctAnswer": "Add to app/Http/Kernel.php in $middlewareGroups",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 442,
-    "prompt": "What is the Artisan command to create a new listener in Laravel?\\nA) php artisan generate:listener SendWelcomeEmail\\nB) php artisan create:listener SendWelcomeEmail\\nC) php artisan make:listener SendWelcomeEmail\\nD) php artisan new:listener SendWelcomeEmail",
+    "prompt": "What is the Artisan command to create a new listener in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "php artisan generate:listener SendWelcomeEmail"
+      },
+      {
+        "id": "B",
+        "text": "php artisan create:listener SendWelcomeEmail"
+      },
+      {
+        "id": "C",
         "text": "php artisan make:listener SendWelcomeEmail"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "php artisan new:listener SendWelcomeEmail"
       }
     ],
     "correctAnswer": "php artisan make:listener SendWelcomeEmail",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 443,
-    "prompt": "What is a way to ensure that all email addresses in your User model are persisted as lowercase characters?\\nA) Cast the email attribute to lowercase.\\nB) Define an accessor and use strtolower().\\nC) Define a lowercase cast for the email attribute.\\nD) Define a mutator and use strtolower().",
+    "prompt": "What is a way to ensure that all email addresses in your User model are persisted as lowercase characters?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "Define a mutator and use strtolower()."
+        "text": "Cast the email attribute to lowercase."
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Define an accessor and use strtolower()."
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Define a lowercase cast for the email attribute."
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Define a mutator and use strtolower()."
       }
     ],
     "correctAnswer": "Define a mutator and use strtolower().",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 444,
-    "prompt": "How do you roll back the last database migration?\\nA) php artisan migrate:reset\\nB) php artisan migrate:refresh\\nC) php artisan migrate:down\\nD) php artisan migrate:rollback",
+    "prompt": "How do you roll back the last database migration?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "php artisan migrate:rollback"
+        "text": "php artisan migrate:reset"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "php artisan migrate:refresh"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "php artisan migrate:down"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "php artisan migrate:rollback"
       }
     ],
     "correctAnswer": "php artisan migrate:rollback",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 445,
-    "prompt": "What role does route-model binding play in this controller method?\\npublic function update(Request $request, User $user) { ... }\\n[OPTIONS PARTIALLY CROPPED]\\nA) It handles the validation rules for the request automatically.\\nB) It ensures that the request is always authenticated.\\nC) It automatically resolves and injects the User model from the route parameter.\\nD) It encrypts the user data before updating.",
-    "code": null,
+    "prompt": "What role does route-model binding play in this controller method?",
+    "code": "public function update(Request $request, User $user) { ... }\n[OPTIONS PARTIALLY CROPPED]",
     "options": [
       {
         "id": "A",
+        "text": "It handles the validation rules for the request automatically."
+      },
+      {
+        "id": "B",
+        "text": "It ensures that the request is always authenticated."
+      },
+      {
+        "id": "C",
         "text": "It automatically resolves and injects the User model from the route parameter."
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
-        "id": "C",
-        "text": "All of the above"
-      },
-      {
         "id": "D",
-        "text": "Not applicable"
+        "text": "It encrypts the user data before updating."
       }
     ],
     "correctAnswer": "It automatically resolves and injects the User model from the route parameter.",
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": 446,
-    "prompt": "What are the benefits of using Redis for session management, as demonstrated in the following configuration?\\nSESSION_DRIVER=redis\\nA) Complex setup\\nB) Limited data storage\\nC) Slower performance\\nD) Fast data access and scalability",
-    "code": null,
+    "prompt": "What are the benefits of using Redis for session management, as demonstrated in the following configuration?",
+    "code": "SESSION_DRIVER=redis",
     "options": [
       {
         "id": "A",
-        "text": "Fast data access and scalability"
+        "text": "Complex setup"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "Limited data storage"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "Slower performance"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Fast data access and scalability"
       }
     ],
     "correctAnswer": "Fast data access and scalability",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 447,
-    "prompt": "What is the purpose of the Auth::viaRemember() method in Laravel?\\nA) To check if the user was authenticated using the \"remember me\" cookie\\nB) To register a new user\\nC) To log out a user\\nD) To retrieve the currently authenticated user",
+    "prompt": "What is the purpose of the Auth::viaRemember() method in Laravel?",
     "code": null,
     "options": [
       {
@@ -11044,15 +11040,15 @@
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "To register a new user"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "To log out a user"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "To retrieve the currently authenticated user"
       }
     ],
     "correctAnswer": "To check if the user was authenticated using the \"remember me\" cookie",
@@ -11060,53 +11056,53 @@
   },
   {
     "id": 448,
-    "prompt": "How do you enable caching in a Laravel application?\\nA) Cache::enable()\\nB) By configuring the cache driver in the .env file\\nC) Cache::activate()\\nD) Cache::start()",
+    "prompt": "How do you enable caching in a Laravel application?",
     "code": null,
     "options": [
       {
         "id": "A",
+        "text": "Cache::enable()"
+      },
+      {
+        "id": "B",
         "text": "By configuring the cache driver in the .env file"
       },
       {
-        "id": "B",
-        "text": "None of the above"
-      },
-      {
         "id": "C",
-        "text": "All of the above"
+        "text": "Cache::activate()"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "Cache::start()"
       }
     ],
     "correctAnswer": "By configuring the cache driver in the .env file",
-    "correctIndex": 0
+    "correctIndex": 1
   },
   {
     "id": 449,
-    "prompt": "Which Artisan command is used to create a new listener in Laravel?\\nA) create:listener\\nB) make:event\\nC) generate:listener\\nD) make:listener",
+    "prompt": "Which Artisan command is used to create a new listener in Laravel?",
     "code": null,
     "options": [
       {
         "id": "A",
-        "text": "make:listener"
+        "text": "create:listener"
       },
       {
         "id": "B",
-        "text": "None of the above"
+        "text": "make:event"
       },
       {
         "id": "C",
-        "text": "All of the above"
+        "text": "generate:listener"
       },
       {
         "id": "D",
-        "text": "Not applicable"
+        "text": "make:listener"
       }
     ],
     "correctAnswer": "make:listener",
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": 450,

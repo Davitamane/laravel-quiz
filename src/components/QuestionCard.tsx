@@ -1,5 +1,6 @@
 import type { Question } from '../types'
 import { CodeBlock } from './CodeBlock'
+import { formatText } from '../utils/formatText'
 
 interface QuestionCardProps {
   question: Question
@@ -23,13 +24,13 @@ export function QuestionCard({
 }: QuestionCardProps) {
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="text-xl font-semibold leading-snug text-slate-900">
-        {question.prompt}
+      <h2 className="whitespace-pre-wrap text-xl font-semibold leading-snug text-slate-900">
+        {formatText(question.prompt)}
       </h2>
 
       {question.code && (
         <div className="mt-4">
-          <CodeBlock code={question.code} />
+          <CodeBlock code={formatText(question.code)} />
         </div>
       )}
 
@@ -51,7 +52,7 @@ export function QuestionCard({
                   {option.id}
                 </span>
                 <span className="flex-1 whitespace-pre-wrap font-mono text-sm leading-relaxed text-slate-800">
-                  {option.text}
+                  {formatText(option.text)}
                 </span>
                 {isCorrect && (
                   <span className="shrink-0 text-sm font-medium text-emerald-600">Correct</span>
@@ -68,7 +69,7 @@ export function QuestionCard({
       {revealed && (
         <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
           <span className="font-semibold text-slate-900">Answer: </span>
-          <span className="font-mono">{question.correctAnswer}</span>
+          <span className="font-mono">{formatText(question.correctAnswer)}</span>
         </div>
       )}
     </article>

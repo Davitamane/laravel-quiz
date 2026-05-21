@@ -20,9 +20,38 @@ CODE_START = re.compile(
     re.I,
 )
 
+CODE_LIKE = re.compile(
+    r"(<\?php|//|\$\w+|Route::|Schema::|DB::|Broadcast::|MyJob::|"
+    r"public function|protected function|private function|"
+    r"class \w+|php artisan|@csrf|@if|@foreach|@extends|"
+    r"\w+::\w+\(|[\$]\w+.*->|'[\w_]+'\s*=>|\[\s*'[\w_]+'\s*=>)",
+    re.I,
+)
+
+INCOMPLETE_MARKER = re.compile(r"\[[^\]]*INCOMPLETE[^\]]*\]", re.I)
+
 STOP_WORDS = frozenset(
     "a an the to it is of in and or for that as by with on at be this from are was".split()
 )
+
+
+def normalize_raw_text(text: str) -> str:
+    """Convert literal escape sequences from bad Quizlet exports into real characters."""
+    return text.replace("\\n", "\n").replace("\\t", "\t")
+
+
+def clean_placeholder_markers(text: str) -> str:
+    return INCOMPLETE_MARKER.sub("", text).strip()
+
+
+def looks_like_code(stripped: str) -> bool:
+    if CODE_START.match(stripped):
+        return True
+    if CODE_LIKE.search(stripped):
+        return True
+    if re.search(r"\w+::\w+", stripped) and stripped.rstrip().endswith(";"):
+        return True
+    return False
 
 
 def load_entries():
@@ -33,7 +62,12 @@ def load_entries():
         if "\t" in line:
             q_part, ans = line.rsplit("\t", 1)
             block = current + ([q_part] if q_part else [])
-            entries.append(("\n".join(block).strip(), ans.strip()))
+            entries.append(
+                (
+                    normalize_raw_text("\n".join(block).strip()),
+                    normalize_raw_text(ans.strip()),
+                )
+            )
             current = []
         else:
             current.append(line)
@@ -77,7 +111,7 @@ def parse_multiline(text: str):
         if phase == "options":
             continue
 
-        if phase == "prompt" and CODE_START.match(stripped):
+        if phase == "prompt" and looks_like_code(stripped):
             phase = "code"
             code_lines.append(line)
         elif phase == "code":
@@ -91,8 +125,8 @@ def parse_multiline(text: str):
         else:
             prompt_lines.append(stripped)
 
-    prompt = "\n".join(prompt_lines).strip()
-    code = "\n".join(code_lines).strip() or None
+    prompt = clean_placeholder_markers("\n".join(prompt_lines).strip())
+    code = clean_placeholder_markers("\n".join(code_lines).strip()) or None
     return prompt, code, options if options else None
 
 
@@ -202,6 +236,9 @@ def ensure_answer_in_options(options, answer: str) -> tuple[list[dict], int]:
 
 
 def build_question(num: int, raw_q: str, answer: str) -> dict:
+    raw_q = normalize_raw_text(raw_q)
+    answer = normalize_raw_text(answer)
+
     prompt, inline_opts = parse_inline_options(raw_q)
     if inline_opts:
         code = None
